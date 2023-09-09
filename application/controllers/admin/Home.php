@@ -3,6 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 	public function index(){
-        $this->load->view('welcome_message');
+        $this->template->load('layout/template', 'admin/dashboard', 'Dashboard | Admin');
 	}
 }

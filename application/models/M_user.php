@@ -22,19 +22,19 @@ class M_user extends CI_Model{
         [
             'field' => 'level',
             'label' => 'Level',
-            'rules' => 'required|in_list[admin,user]'
+            'rules' => 'required|in_list[admin,kontributor]'
         ]
     ];
     protected $rules2 = [
         [
             'field' => 'nama',
             'label' => 'Nama',
-            'rules' => 'required|min_length[5]'
+            'rules' => 'required'
         ],
         [
             'field' => 'level',
             'label' => 'Level',
-            'rules' => 'required|in_list[admin,user]'
+            'rules' => 'required|in_list[admin,kontributor]'
         ]
     ];
     protected $default_rules;
