@@ -6,13 +6,8 @@ class User extends CI_Controller {
         parent::__construct();
 		//if($this->session->userdata('level')!='admin'){ redirect(base_url('err')); }
         $this->load->model('M_user');
+		$this->load->library('notif');
     }
-	private function buat_notif($message, $warna){
-		return '
-		<div class="alert alert-'.$warna.' alert-dismissable fade show" role="alert">
-			<i class="mdi mdi-exclamation"></i>'.$message.'
-		</div>';
-	}
 
 	//view
 	public function index(){
@@ -30,10 +25,10 @@ class User extends CI_Controller {
 	//backend
 	public function hapus_user($id){
         if($this->M_user->delete($id)){
-			$this->session->set_flashdata('alert',$this->buat_notif('User berhasil dihapus!', 'warning'));
+			$this->session->set_flashdata('alert',$this->notif->set('User berhasil dihapus!', 'warning'));
 			redirect(base_url('admin/user'));
         }else{
-            $this->session->set_flashdata('alert',$this->buat_notif('User gagal dihapus!', 'danger'));
+            $this->session->set_flashdata('alert',$this->notif->set('User gagal dihapus!', 'danger'));
 			redirect(base_url('admin/user'));
         }
 	}
@@ -41,23 +36,23 @@ class User extends CI_Controller {
 		$username = $this->input->post('username');
 		$cekusername = $this->M_user->cek_user($username);
 		if($cekusername){
-			$this->session->set_flashdata('alert',$this->buat_notif('User sudah dipakai!', 'warning'));
+			$this->session->set_flashdata('alert',$this->notif->set('User sudah dipakai!', 'warning'));
 			redirect(base_url('admin/user'));
 		}
 		if($this->M_user->insert_data_user()){
-			$this->session->set_flashdata('alert',$this->buat_notif('User berhasil ditambahkan!', 'success'));
+			$this->session->set_flashdata('alert',$this->notif->set('User berhasil ditambahkan!', 'success'));
 			redirect(base_url('admin/user'));
         } else {
-            $this->session->set_flashdata('alert',$this->buat_notif('User gagal ditambahkan!', 'danger'));
+            $this->session->set_flashdata('alert',$this->notif->set('User gagal ditambahkan!', 'danger'));
 			redirect(base_url('admin/user'));
         }
 	}
 	public function update_user($id){
 		if($this->M_user->update_data_user($id)){
-			$this->session->set_flashdata('alert',$this->buat_notif('User berhasil diedit!', 'success'));
+			$this->session->set_flashdata('alert',$this->notif->set('User berhasil diedit!', 'success'));
 			redirect(base_url('admin/user'));
         } else {
-            $this->session->set_flashdata('alert',$this->buat_notif('User gagal diedit!', 'danger'));
+            $this->session->set_flashdata('alert',$this->notif->set('User gagal diedit!', 'danger'));
 			redirect(base_url('admin/user'));
         }
 	}
