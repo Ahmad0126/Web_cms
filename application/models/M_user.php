@@ -62,6 +62,7 @@ class M_user extends CI_Model{
     }
     
     public function get_user(){
+        $this->db->order_by('nama', 'ASC');
         return $this->db->get($this->_table)->result();
     }
     public function get_user_by_id($id){

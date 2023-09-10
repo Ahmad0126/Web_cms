@@ -9,7 +9,7 @@
 					</div>
 					<h4>Silahkan login</h4>
 					<h6 class="font-weight-light">Admin dan Kontributor</h6>
-					<form action="<?= base_url('home/log_in') ?>" method="post" class="pt-3">
+					<form action="<?= base_url('auth/log_in') ?>" method="post" class="pt-3">
 						<div class="form-group">
 							<input type="text" name="username" class="form-control form-control-lg <?= $this->session->flashdata('username') != null?'is-invalid':'' ?>" value="<?= $this->session->flashdata('username_val') != null? $this->session->flashdata('username_val') : '' ?>" id="exampleInputEmail1"
 								placeholder="Username">

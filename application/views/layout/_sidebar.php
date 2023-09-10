@@ -25,6 +25,7 @@
 				<span class="menu-title">Konten</span>
 			</a>
 		</li>
+		<?php if($this->session->userdata('level')=='admin'){ ?>
 		<li class="nav-item <?= $menu == null ? 'active' : '' ?>">
 			<a class="nav-link" href="<?= base_url('admin/user') ?>">
 				<i class="mdi mdi-account menu-icon"></i>
@@ -37,5 +38,6 @@
 				<span class="menu-title">Konfigurasi</span>
 			</a>
 		</li>
+		<?php } ?>
 	</ul>
 </nav>
