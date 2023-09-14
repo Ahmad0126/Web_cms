@@ -2,45 +2,32 @@
 <html lang="en">
 
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title><?= $title ?></title>
 	<style>
-		.mdi-3x{
+		.mdi-3x {
 			font-size: 50px;
 		}
+
 	</style>
 	<?php require_once('_css.php') ?>
 </head>
 
-<body>
-	<div class="container-scroller">
-		<!-- partial:partials/_navbar.html -->
+<body class="">
+	<?php require_once('_sidebar.php') ?>
+	<div class="main-content">
+		<!-- Navbar -->
 		<?php require_once('_navbar.php') ?>
-		<!-- partial -->
-		<div class="container-fluid page-body-wrapper">
-			<!-- partial:partials/_settings-panel.html -->
-			<?php require_once('_setting.php') ?>
-			<!-- partial -->
-			<!-- partial:partials/_sidebar.html -->
-			<?php require_once('_sidebar.php') ?>
-			<!-- partial -->
-			<div class="main-panel">
-				<div class="content-wrapper">
-                    <?= $contents ?>
-				</div>
-				<!-- content-wrapper ends -->
-				<!-- partial:partials/_footer.html -->
-				<?php require_once('_footer.php') ?>
-				<!-- partial -->
+		<!-- End Navbar -->
+		<div class="container-fluid pb-8 pt-4 pt-md-7">
+			<div class="row">
+				<?= $contents ?>
 			</div>
-			<!-- main-panel ends -->
+			<!-- Footer -->
+			<?php require_once('_footer.php') ?>
 		</div>
-		<!-- page-body-wrapper ends -->
 	</div>
-	<!-- container-scroller -->
-
 	<?php require_once('_js.php') ?>
 </body>
 

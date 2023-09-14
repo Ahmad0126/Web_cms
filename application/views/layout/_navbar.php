@@ -1,34 +1,49 @@
-<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-	<div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-		<a class="navbar-brand brand-logo mr-5" href="<?= base_url() ?>"><h3 class="text-bold">KAS BUKU</h3> </a>
-		<a class="navbar-brand brand-logo-mini" href="<?= base_url() ?>"><img src="<?= base_url('assets/skydash/') ?>images/logo-mini.svg"
-				alt="logo" /></a>
-	</div>
-	<div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-		<button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-			<span class="icon-menu"></span>
-		</button>
-		<ul class="navbar-nav navbar-nav-right">
-			<li class="nav-item nav-profile dropdown">
-				<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-					<img src="<?= base_url('assets/skydash/') ?>images/faces/face28.jpg" alt="profile" />
+<nav class="navbar navbar-top navbar-expand-md navbar-dark bg-primary" id="navbar-main">
+	<div class="container-fluid">
+		<!-- Brand -->
+		<a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="<?= base_url() ?>">Dashboard</a>
+		<form action="" class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto"></form>
+		<!-- User -->
+		<ul class="navbar-nav align-items-center d-none d-md-flex">
+			<li class="nav-item dropdown">
+				<a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">
+					<div class="media align-items-center">
+						<span class="avatar avatar-sm rounded-circle">
+							<img alt="Image placeholder" src="<?= base_url('assets/argon/') ?>assets/img/theme/team-4-800x800.jpg">
+						</span>
+						<div class="media-body ml-2 d-none d-lg-block">
+							<span class="mb-0 text-sm  font-weight-bold"><?= $this->session->userdata('nama') ?></span>
+						</div>
+					</div>
 				</a>
-				<div class="dropdown-menu dropdown-menu-right navbar-dropdown"
-					aria-labelledby="profileDropdown">
-					<a class="dropdown-item">
-						<i class="ti-settings text-primary"></i>
-						Settings
+				<div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+					<div class=" dropdown-header noti-title">
+						<h6 class="text-overflow m-0">Welcome!</h6>
+					</div>
+					<a href="#" class="dropdown-item">
+						<i class="ni ni-single-02"></i>
+						<span>My profile</span>
 					</a>
-					<a class="dropdown-item" href="<?= base_url('logout') ?>">
-						<i class="ti-power-off text-primary"></i>
-						Logout
+					<a href="#" class="dropdown-item">
+						<i class="ni ni-settings-gear-65"></i>
+						<span>Settings</span>
+					</a>
+					<a href="#" class="dropdown-item">
+						<i class="ni ni-calendar-grid-58"></i>
+						<span>Activity</span>
+					</a>
+					<a href="#" class="dropdown-item">
+						<i class="ni ni-support-16"></i>
+						<span>Support</span>
+					</a>
+					<div class="dropdown-divider"></div>
+					<a href="<?= base_url('logout') ?>" class="dropdown-item">
+						<i class="ni ni-user-run"></i>
+						<span>Logout</span>
 					</a>
 				</div>
 			</li>
 		</ul>
-		<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-			data-toggle="offcanvas">
-			<span class="icon-menu"></span>
-		</button>
 	</div>
 </nav>

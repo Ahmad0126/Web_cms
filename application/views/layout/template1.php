@@ -2,35 +2,61 @@
 <html lang="en">
 
 <head>
-    <!-- plugins:css -->
-	<link rel="stylesheet" href="<?= base_url('assets/skydash/') ?>vendors/feather/feather.css">
-	<link rel="stylesheet" href="<?= base_url('assets/skydash/') ?>vendors/ti-icons/css/themify-icons.css">
-	<link rel="stylesheet" href="<?= base_url('assets/skydash/') ?>vendors/css/vendor.bundle.base.css">
-	<!-- endinject -->
-	<!-- Plugin css for this page -->
-	<!-- End plugin css for this page -->
-	<!-- inject:css -->
-	<link rel="stylesheet" href="<?= base_url('assets/skydash/') ?>css/vertical-layout-light/style.css">
-	<!-- endinject -->
-	<link rel="shortcut icon" href="<?= base_url('assets/skydash/') ?>images/favicon.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    Login cms
+  </title>
+  <?php require_once('_css.php') ?>
 </head>
 
-<body>
-    <div class="container-scroller">
-        <?= $contents ?>
-    </div>
-	<!-- plugins:js -->
-	<script src="<?= base_url('assets/skydash/') ?>vendors/js/vendor.bundle.base.js"></script>
-	<!-- endinject -->
-	<!-- Plugin js for this page -->
-	<!-- End plugin js for this page -->
-	<!-- inject:js -->
-	<script src="<?= base_url('assets/skydash/') ?>js/off-canvas.js"></script>
-	<script src="<?= base_url('assets/skydash/') ?>js/hoverable-collapse.js"></script>
-	<script src="<?= base_url('assets/skydash/') ?>js/template.js"></script>
-	<script src="<?= base_url('assets/skydash/') ?>js/settings.js"></script>
-	<script src="<?= base_url('assets/skydash/') ?>js/todolist.js"></script>
-	<!-- endinject -->
+<body class="bg-default">
+  <div class="main-content">
+
+  <?= $contents ?>
+
+  <footer class="py-5">
+      <div class="container">
+        <div class="row align-items-center justify-content-xl-between">
+          <div class="col-xl-6">
+            <div class="copyright text-center text-xl-left text-muted">
+              © 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+              <li class="nav-item">
+                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!--   Core   -->
+  <script src="<?= base_url('assets/argon/') ?>assets/js/plugins/jquery/dist/jquery.min.js"></script>
+  <script src="<?= base_url('assets/argon/') ?>assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!--   Optional JS   -->
+  <!--   Argon JS   -->
+  <script src="<?= base_url('assets/argon/') ?>assets/js/argon-dashboard.min.js?v=1.1.2"></script>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS &&
+      TrackJS.install({
+        token: "ee6fab19c5a04ac1a32a645abde4613a",
+        application: "argon-dashboard-free"
+      });
+  </script>
 </body>
 
 </html>

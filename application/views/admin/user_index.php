@@ -1,4 +1,4 @@
-<div class="container-fluid pt-4 px-4 notifikasi">
+<div class="container-fluid pt-4 px-4">
 	<?= $this->session->flashdata('alert'); ?>
 </div>
 <!-- Recent Sales Start -->

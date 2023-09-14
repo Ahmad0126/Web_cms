@@ -1,15 +1,9 @@
-<!-- plugins:css -->
-<link rel="stylesheet" href="<?= base_url('assets/skydash/') ?>vendors/feather/feather.css">
-<link rel="stylesheet" href="<?= base_url('assets/skydash/') ?>vendors/ti-icons/css/themify-icons.css">
-<link rel="stylesheet" href="<?= base_url('assets/skydash/') ?>vendors/css/vendor.bundle.base.css">
-<!-- endinject -->
-<!-- Plugin css for this page -->
-<link rel="stylesheet" href="<?= base_url('assets/skydash/') ?>vendors/mdi/css/materialdesignicons.min.css">
-<link rel="stylesheet" href="<?= base_url('assets/skydash/') ?>vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-<link rel="stylesheet" href="<?= base_url('assets/skydash/') ?>vendors/ti-icons/css/themify-icons.css">
-<link rel="stylesheet" type="text/css" href="<?= base_url('assets/skydash/') ?>js/select.dataTables.min.css">
-<!-- End plugin css for this page -->
-<!-- inject:css -->
-<link rel="stylesheet" href="<?= base_url('assets/skydash/') ?>css/vertical-layout-light/style.css">
-<!-- endinject -->
-<link rel="shortcut icon" href="<?= base_url('assets/skydash/') ?>images/favicon.png" />
+<!-- Favicon -->
+<link href="<?= base_url('assets/argon/') ?>assets/img/brand/favicon.png" rel="icon" type="image/png">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<!-- Icons -->
+<link href="<?= base_url('assets/argon/') ?>assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+<link href="<?= base_url('assets/argon/') ?>assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+<!-- CSS Files -->
+<link href="<?= base_url('assets/argon/') ?>assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />

@@ -1,9 +1,28 @@
 <footer class="footer">
-	<div class="d-sm-flex justify-content-center justify-content-sm-between">
-		<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.
-			Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin
-				template</a> from BootstrapDash. All rights reserved.</span>
-		<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made
-			with <i class="ti-heart text-danger ml-1"></i></span>
+	<div class="row align-items-center justify-content-xl-between">
+		<div class="col-xl-6">
+			<div class="copyright text-center text-xl-left text-muted">
+				&copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1"
+					target="_blank">Creative Tim</a>
+			</div>
+		</div>
+		<div class="col-xl-6">
+			<ul class="nav nav-footer justify-content-center justify-content-xl-end">
+				<li class="nav-item">
+					<a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+				</li>
+				<li class="nav-item">
+					<a href="https://www.creative-tim.com/presentation" class="nav-link"
+						target="_blank">About Us</a>
+				</li>
+				<li class="nav-item">
+					<a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+				</li>
+				<li class="nav-item">
+					<a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md"
+						class="nav-link" target="_blank">MIT License</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 </footer>
