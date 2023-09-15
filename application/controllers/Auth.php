@@ -36,6 +36,6 @@ class Auth extends CI_Controller {
         redirect(base_url('auth'));
     }
 	public function err(){
-		$this->template->load('layout/template1', 'errors/html/err_404', 'Halaman tidak ditemukan');
+        $this->load->view('errors/html/err_404');
 	}
 }

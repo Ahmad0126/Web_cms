@@ -1,28 +1,109 @@
-<div class="container-fluid page-body-wrapper full-page-wrapper">
-	<div class="content-wrapper d-flex align-items-center text-center error-page bg-primary">
-		<div class="row flex-grow">
-			<div class="col-lg-7 mx-auto text-white">
-				<div class="row align-items-center d-flex flex-row">
-					<div class="col-lg-6 text-lg-right pr-lg-4">
-						<h1 class="display-1 mb-0">404</h1>
-					</div>
-					<div class="col-lg-6 error-page-divider text-lg-left pl-lg-4">
-						<h2>SORRY!</h2>
-						<h3 class="font-weight-light">The page you’re looking for was not found.</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<title>404!</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="<?= base_url('assets/fruitkha/') ?>assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="<?= base_url('assets/fruitkha/') ?>assets/css/all.min.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="<?= base_url('assets/fruitkha/') ?>assets/bootstrap/css/bootstrap.min.css">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="<?= base_url('assets/fruitkha/') ?>assets/css/owl.carousel.css">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="<?= base_url('assets/fruitkha/') ?>assets/css/magnific-popup.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="<?= base_url('assets/fruitkha/') ?>assets/css/animate.css">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="<?= base_url('assets/fruitkha/') ?>assets/css/meanmenu.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="<?= base_url('assets/fruitkha/') ?>assets/css/main.css">
+	<!-- responsive -->
+	<link rel="stylesheet" href="<?= base_url('assets/fruitkha/') ?>assets/css/responsive.css">
+
+</head>
+<body>
+	
+	<!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+
+		<!-- error section -->
+		<div class="full-height-section error-section">
+			<div class="full-height-tablecell">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 offset-lg-2 text-center">
+							<div class="error-text">
+								<i class="far fa-sad-cry"></i>
+								<h1>Oops! 404 - Not Found.</h1>
+								<p>The page you requested for is not found.</p>
+								<a href="<?= base_url() ?>" class="boxed-btn">Back to Home</a>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="row mt-5">
-					<div class="col-12 text-center mt-xl-2">
-						<a class="text-white font-weight-medium" href="<?= base_url() ?>">Back to home</a>
-					</div>
+			</div>
+		</div>
+		<!-- end error section -->
+	
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
 				</div>
-				<div class="row mt-5">
-					<div class="col-12 mt-xl-2">
-						<p class="text-white font-weight-medium text-center">Copyright © 2021 All rights reserved.</p>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- content-wrapper ends -->
-</div>
+	<!-- end copyright -->
+	
+	<!-- jquery -->
+	<script src="<?= base_url('assets/fruitkha/') ?>assets/js/jquery-1.11.3.min.js"></script>
+	<!-- bootstrap -->
+	<script src="<?= base_url('assets/fruitkha/') ?>assets/bootstrap/js/bootstrap.min.js"></script>
+	<!-- count down -->
+	<script src="<?= base_url('assets/fruitkha/') ?>assets/js/jquery.countdown.js"></script>
+	<!-- isotope -->
+	<script src="<?= base_url('assets/fruitkha/') ?>assets/js/jquery.isotope-3.0.6.min.js"></script>
+	<!-- waypoints -->
+	<script src="<?= base_url('assets/fruitkha/') ?>assets/js/waypoints.js"></script>
+	<!-- owl carousel -->
+	<script src="<?= base_url('assets/fruitkha/') ?>assets/js/owl.carousel.min.js"></script>
+	<!-- magnific popup -->
+	<script src="<?= base_url('assets/fruitkha/') ?>assets/js/jquery.magnific-popup.min.js"></script>
+	<!-- mean menu -->
+	<script src="<?= base_url('assets/fruitkha/') ?>assets/js/jquery.meanmenu.min.js"></script>
+	<!-- sticker js -->
+	<script src="<?= base_url('assets/fruitkha/') ?>assets/js/sticker.js"></script>
+	<!-- main js -->
+	<script src="<?= base_url('assets/fruitkha/') ?>assets/js/main.js"></script>
+	
+	</body>
+</html>
