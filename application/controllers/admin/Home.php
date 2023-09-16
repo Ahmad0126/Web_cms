@@ -7,6 +7,6 @@ class Home extends CI_Controller {
 		if($this->session->userdata('level')==null){ redirect(base_url('err')); }
 	}
 	public function index(){
-        $this->template->load('layout/template', 'admin/dashboard', 'Dashboard | Admin');
+        $this->template->load('layout/argon/template', 'admin/dashboard', 'Dashboard | Admin');
 	}
 }

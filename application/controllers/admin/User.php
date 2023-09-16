@@ -12,14 +12,14 @@ class User extends CI_Controller {
 	//view
 	public function index(){
 		$data['user'] = $this->M_user->get_user();
-		$this->template->load('layout/template', 'admin/user_index', 'Daftar User', $data);
+		$this->template->load('layout/argon/template', 'admin/user_index', 'Daftar User', $data);
 	}
 	public function tambah(){
-		$this->template->load('layout/template', 'admin/form_user', 'Tambah User');
+		$this->template->load('layout/argon/template', 'admin/form_user', 'Tambah User');
 	}
 	public function edit($id){
 		$data['user'] = $this->M_user->get_user_by_id($id);
-		$this->template->load('layout/template', 'admin/form_user', 'Edit User', $data);
+		$this->template->load('layout/argon/template', 'admin/form_user', 'Edit User', $data);
 	}
 
 	//backend
