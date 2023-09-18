@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_user extends CI_Model{
+    //Konfigurasi
     protected $_table = 'user';
     protected $rules1 = [
         [
@@ -60,7 +61,7 @@ class M_user extends CI_Model{
         }
         return FALSE;
     }
-    
+    //Read
     public function get_user(){
         $this->db->order_by('nama', 'ASC');
         return $this->db->get($this->_table)->result();
@@ -68,19 +69,12 @@ class M_user extends CI_Model{
     public function get_user_by_id($id){
         return $this->db->get_where($this->_table, array('id_user' => $id))->row_array();
     }
-    public function getwu_user($user){
-        return $this->db->get_where($this->_table, array('username' => $user))->row_array();
-    }
     public function cek_user($username){
         return $this->db->where('username', $username)->count_all_results('user');
     }
-    
+    //Create
     private function insert_user($data){
         $this->db->insert($this->_table, $data);
-        return TRUE;
-    }
-    public function delete($id){
-        $this->db->delete($this->_table, array('id_user' => $id));
         return TRUE;
     }
     public function insert_data_user(){
@@ -93,6 +87,7 @@ class M_user extends CI_Model{
             return FALSE;
         }
     }
+    //Update
     private function update_user($data, $id){
         $this->db->where('id_user',$id);
         $this->db->update($this->_table, $data);
@@ -107,5 +102,10 @@ class M_user extends CI_Model{
         } else {
             return FALSE;
         }
+    }
+    //Delete
+    public function delete($id){
+        $this->db->delete($this->_table, array('id_user' => $id));
+        return TRUE;
     }
 }
