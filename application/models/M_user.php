@@ -69,6 +69,9 @@ class M_user extends CI_Model{
     public function get_user_by_id($id){
         return $this->db->get_where($this->_table, array('id_user' => $id))->row_array();
     }
+    public function getwu_user($user){
+        return $this->db->get_where($this->_table, array('username' => $user))->row_array();
+    }
     public function cek_user($username){
         return $this->db->where('username', $username)->count_all_results('user');
     }
