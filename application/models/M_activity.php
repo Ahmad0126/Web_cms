@@ -147,6 +147,9 @@ class M_activity extends CI_Model{
     }
     //Delete
     public function delete_konten($id){
+        $konten = $this->get_konten_by_id($id);
+        $name = $konten['foto'];
+        unlink('assets/upload/konten/'.$name);
         $this->db->delete($this->table1, array('id_konten' => $id));
         return TRUE;
     }
