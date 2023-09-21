@@ -19,6 +19,23 @@ class M_activity extends CI_Model{
             'rules' => 'required'
         ]
     ];
+    protected $rules3 = [
+        [
+            'field' => 'judul',
+            'label' => 'Judul',
+            'rules' => 'required|is_unique[konten.judul]'
+        ],
+        [
+            'field' => 'keterangan',
+            'label' => 'Isi konten',
+            'rules' => 'required'
+        ],
+        [
+            'field' => 'kategori',
+            'label' => 'Kategori',
+            'rules' => 'required'
+        ]
+    ];
     protected $default_rules;
 
     private function validation(){
@@ -33,14 +50,22 @@ class M_activity extends CI_Model{
     }
     private function validation_konten(){
         $this->form_validation->set_rules($this->default_rules);
-        if ($this->form_validation->run() == TRUE){
+        //upload foto
+        $namafoto = date('YmdHis').'.jpg';
+        $config['upload_path'] = 'assets/upload/konten';
+        $config['max_size'] = 500 * 1024;
+        $config['file_name'] = $namafoto;
+        $config['allowed_types'] = '*';
+        $this->load->library('upload', $config);
+        if ($this->form_validation->run() == TRUE && $this->upload->do_upload('foto')){
             $konten = [
                 'judul' => $this->input->post('judul'),
                 'id_kategori' => $this->input->post('kategori'),
                 'keterangan' => $this->input->post('keterangan'),
                 'username' => $this->session->userdata('username'),
                 'tanggal' => date('Y-m-d'),
-                'slug' => str_replace(' ', '-', $this->input->post('judul'))
+                'slug' => str_replace(' ', '-', $this->input->post('judul')),
+                'foto' => $namafoto
             ];
             return $konten;
         }
@@ -75,7 +100,7 @@ class M_activity extends CI_Model{
     }
     //Delete
     public function delete($id){
-        $this->db->delete($this->_table, array('id_kategori' => $id));
+        $this->db->delete($this->table1, array('id_kategori' => $id));
         return TRUE;
     }
     //Update
@@ -112,9 +137,9 @@ class M_activity extends CI_Model{
         return TRUE;
     }
     public function insert_data_konten(){
-        $this->default_rules = $this->rules1;
-        $validation_konten = $this->validation();
-        if ($validation_konten){
+        $this->default_rules = $this->rules3;
+        $validation_konten = $this->validation_konten();
+        if ($validation_konten && $_FILES['foto']['size'] <= 500 * 1024){
             return $this->insert_konten($validation_konten);
         } else {
             return FALSE;

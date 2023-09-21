@@ -34,7 +34,7 @@ class Konten extends CI_Controller {
         }
 	}
 	public function simpan(){
-		$judul = $this->input->post('konten');
+		$judul = $this->input->post('judul');
 		$cekjudul = $this->M_activity->cek_judul($judul);
 		if($cekjudul){
 			$this->session->set_flashdata('alert',$this->notif->set('Judul konten sudah dipakai!', 'warning'));
