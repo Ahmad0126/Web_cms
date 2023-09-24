@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_user extends CI_Model{
     //Konfigurasi
     protected $_table = 'user';
+    protected $table1 = 'konfigurasi';
     protected $rules1 = [
         [
             'field' => 'username',
@@ -110,5 +111,24 @@ class M_user extends CI_Model{
     public function delete($id){
         $this->db->delete($this->_table, array('id_user' => $id));
         return TRUE;
+    }
+
+    //Bagian konfigurasi
+    public function get_konfig(){
+        return $this->db->get($this->table1)->row_array();
+    }
+    //Update
+    public function update(){
+        $data = [
+            'judul_website' => $this->input->post('judul_website'),
+            'profil_website' => $this->input->post('profil_website'),
+            'instagram' => $this->input->post('instagram'),
+            'facebook' => $this->input->post('facebook'),
+            'email' => $this->input->post('email'),
+            'alamat' => $this->input->post('alamat'),
+            'no_wa' => $this->input->post('no_wa')
+        ];
+        $this->db->where('id_konfigurasi',1);
+        return $this->db->update($this->table1, $data);
     }
 }
