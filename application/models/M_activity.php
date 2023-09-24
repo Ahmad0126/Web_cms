@@ -5,6 +5,7 @@ class M_activity extends CI_Model{
     //Konfigurasi
     protected $_table = 'kategori';
     protected $table1 = 'konten';
+    protected $table2 = 'user';
     protected $rules1 = [
         [
             'field' => 'kategori',
@@ -100,7 +101,7 @@ class M_activity extends CI_Model{
     }
     //Delete
     public function delete($id){
-        $this->db->delete($this->table1, array('id_kategori' => $id));
+        $this->db->delete($this->_table, array('id_kategori' => $id));
         return TRUE;
     }
     //Update
@@ -122,8 +123,12 @@ class M_activity extends CI_Model{
     //Bagian konten
     //Read
     public function get_konten(){
+        $this->db->select('judul, '.$this->_table.'.nama_kategori, id_konten, tanggal, '.$this->table2.'.nama, foto');
+        $this->db->from($this->table1);
+        $this->db->join($this->_table, $this->_table.'.id_kategori = '.$this->table1.'.id_kategori');
+        $this->db->join($this->table2, $this->table2.'.username = '.$this->table1.'.username');
         $this->db->order_by('tanggal', 'DESC');
-        return $this->db->get($this->table1)->result();
+        return $this->db->get()->result();
     }
     public function get_konten_by_id($id){
         return $this->db->get_where($this->table1, array('id_konten' => $id))->row_array();

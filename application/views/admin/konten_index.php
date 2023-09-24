@@ -29,13 +29,28 @@
 					<tr>
 						<td class="text-start"><?= $no++ ?></td>
 						<td class="text-center"><?= $fer->judul ?></td>
-						<td class="text-center">-</td>
+						<td class="text-center"><?= $fer->nama_kategori ?></td>
 						<td class="text-center"><?= $fer->tanggal ?></td>
-						<td class="text-center">-</td>
-						<td class="text-center">-</td>
+						<td class="text-center"><?= $fer->nama ?></td>
+						<td class="text-center">
+							<a class="btn btn-sm " href="#" data-toggle="modal" type="button" data-target="#tambahModal<?= $no ?>">
+								<i class="fa fa-search"></i> Lihat foto
+							</a>
+							<div class="modal fade" id="tambahModal<?= $no ?>" tabindex="-1" role="dialog" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+
+										<img src="<?= base_url('assets/upload/konten/').$fer->foto ?>" style="max-width: 500px; max-height: 350px;" alt="">
+									</div>
+								</div>
+							</div>
+							
+						</td>
 						<td style="text-align:end;">
 							<a class="btn btn-sm btn-primary" href="<?= base_url('admin/konten/edit/').$fer->id_konten ?>">Edit</a>
-							<a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus konten ini?')" href="<?= base_url('admin/konten/hapus_konten/').$fer->id_konten ?>">Hapus <i class="fa fa-trash"></i></a>
+							<a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus konten ini?')" href="<?= base_url('admin/konten/hapus_konten/').$fer->id_konten ?>">
+								Hapus <i class="fa fa-trash"></i>
+							</a>
 						</td>
 					</tr>
 					<?php endforeach ?>

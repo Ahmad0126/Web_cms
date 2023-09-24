@@ -40,6 +40,10 @@ class Konten extends CI_Controller {
 			$this->session->set_flashdata('alert',$this->notif->set('Judul konten sudah dipakai!', 'warning'));
 			redirect(base_url('admin/konten'));
 		}
+		if($_FILES['foto']['size'] >= 500 * 1024){
+			$this->session->set_flashdata('alert',$this->notif->set('Ukuran foto terlalu besar!', 'danger'));
+			redirect(base_url('admin/konten'));
+		}
 		if($this->M_activity->insert_data_konten()){
 			$this->session->set_flashdata('alert',$this->notif->set('Konten berhasil ditambahkan!', 'success'));
 			redirect(base_url('admin/konten'));
