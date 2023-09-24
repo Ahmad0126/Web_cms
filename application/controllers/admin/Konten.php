@@ -20,6 +20,8 @@ class Konten extends CI_Controller {
 	}
 	public function edit($id){
 		$data['konten'] = $this->M_activity->get_konten_by_id($id);
+		$data['kategori'] = $this->M_activity->get_kategori();
+		//var_dump($data); die;
 		$this->template->load('layout/argon/template', 'admin/form_konten', 'Edit konten', $data);
 	}
 

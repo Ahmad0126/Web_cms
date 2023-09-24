@@ -37,11 +37,29 @@ class M_activity extends CI_Model{
             'rules' => 'required'
         ]
     ];
+    protected $rules4 = [
+        [
+            'field' => 'judul',
+            'label' => 'Judul',
+            'rules' => 'required'
+        ],
+        [
+            'field' => 'keterangan',
+            'label' => 'Isi konten',
+            'rules' => 'required'
+        ],
+        [
+            'field' => 'kategori',
+            'label' => 'Kategori',
+            'rules' => 'required'
+        ]
+    ];
     protected $default_rules;
+    protected $update_konten;
 
     private function validation(){
         $this->form_validation->set_rules($this->default_rules);
-        if ($this->form_validation->run() == TRUE){
+        if ($this->form_validation->run()){
             $kategori = [
                 'nama_kategori' => $this->input->post('kategori')
             ];
@@ -51,23 +69,35 @@ class M_activity extends CI_Model{
     }
     private function validation_konten(){
         $this->form_validation->set_rules($this->default_rules);
-        //upload foto
+        $statusfoto = false;
         $namafoto = date('YmdHis').'.jpg';
-        $config['upload_path'] = 'assets/upload/konten';
-        $config['max_size'] = 500 * 1024;
-        $config['file_name'] = $namafoto;
-        $config['allowed_types'] = '*';
-        $this->load->library('upload', $config);
-        if ($this->form_validation->run() == TRUE && $this->upload->do_upload('foto')){
+        if($this->update_konten){
+            $statusfoto = true;
+            $namafoto = $this->input->post('nama_foto');
+        }
+        if($_FILES['foto']['name'] != ''){
+            $config['upload_path'] = 'assets/upload/konten';
+            $config['max_size'] = 500 * 1024;
+            $config['overwrite'] = true;
+            $config['file_name'] = $namafoto;
+            $config['allowed_types'] = '*';
+            $this->load->library('upload', $config);
+            $statusfoto = $this->upload->do_upload('foto');
+        }
+        if ($this->form_validation->run() && $statusfoto){
             $konten = [
                 'judul' => $this->input->post('judul'),
                 'id_kategori' => $this->input->post('kategori'),
                 'keterangan' => $this->input->post('keterangan'),
-                'username' => $this->session->userdata('username'),
-                'tanggal' => date('Y-m-d'),
-                'slug' => str_replace(' ', '-', $this->input->post('judul')),
-                'foto' => $namafoto
+                'slug' => str_replace(' ', '-', $this->input->post('judul'))
             ];
+            if($this->update_konten == false){
+                $konten += [
+                    'username' => $this->session->userdata('username'),
+                    'tanggal' => date('Y-m-d'),
+                    'foto' => $namafoto
+                ];
+            }
             return $konten;
         }
         return FALSE;
@@ -142,6 +172,7 @@ class M_activity extends CI_Model{
         return TRUE;
     }
     public function insert_data_konten(){
+        $this->update_konten = false;
         $this->default_rules = $this->rules3;
         $validation_konten = $this->validation_konten();
         if ($validation_konten && $_FILES['foto']['size'] <= 500 * 1024){
@@ -165,8 +196,9 @@ class M_activity extends CI_Model{
         return TRUE;
     }
     public function update_data_konten($id){
-        $this->default_rules = $this->rules2;
-        $validation_konten = $this->validation();
+        $this->update_konten = true;
+        $this->default_rules = $this->rules4;
+        $validation_konten = $this->validation_konten();
         if ($validation_konten){
             return $this->update_konten($validation_konten, $id);
         } else {
