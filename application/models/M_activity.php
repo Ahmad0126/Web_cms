@@ -6,6 +6,7 @@ class M_activity extends CI_Model{
     protected $_table = 'kategori';
     protected $table1 = 'konten';
     protected $table2 = 'user';
+    protected $table3 = 'caraousel';
     protected $rules1 = [
         [
             'field' => 'kategori',
@@ -204,5 +205,43 @@ class M_activity extends CI_Model{
         } else {
             return FALSE;
         }
+    }
+
+    //Bagian carousel
+    //Read
+    public function get_carousel(){
+        return $this->db->get($this->table3)->result();
+    }
+    public function cek_carousel($judul){
+        return $this->db->where('judul', $judul)->count_all_results($this->table3);
+    }
+    //Create
+    private function insert_carousel($data){
+        $this->db->insert($this->table3, $data);
+        return TRUE;
+    }
+    public function insert_data_carousel(){
+        $namafoto = date('YmdHis').'.jpg';
+        $config['upload_path'] = 'assets/upload/carousel';
+        $config['max_size'] = 500 * 1024;
+        $config['file_name'] = $namafoto;
+        $config['allowed_types'] = '*';
+        $this->load->library('upload', $config);
+        $validation_carousel = $this->upload->do_upload('foto');
+        $data = [
+            'judul' => $this->input->post('judul'),
+            'foto' => $namafoto
+        ];
+        if ($validation_carousel && $_FILES['foto']['size'] <= 500 * 1024){
+            return $this->insert_carousel($data);
+        } else {
+            return FALSE;
+        }
+    }
+    //Delete
+    public function delete_carousel($foto){
+        unlink('assets/upload/carousel/'.$foto);
+        $this->db->delete($this->table3, array('foto' => $foto));
+        return TRUE;
     }
 }
