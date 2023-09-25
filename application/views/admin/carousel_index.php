@@ -14,20 +14,21 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">Tambah Foto</h5>
-						<button class="btn-close" type="button" data-dismiss="modal" aria-label="Close"><i
-								class="settings-close ti-close"></i></button>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          					<span aria-hidden="true">&times;</span>
+						</button>
 					</div>
 					<form action="<?= base_url('admin/carousel/simpan')?>" method="post" enctype="multipart/form-data">
 						<div class="modal-body">
 							<div class="form-group mb-3">
 								<label for="floatingPassword">Judul</label>
 								<input type="text" name="judul" class="form-control" placeholder="Judul"
-									id="floatingPassword">
+									id="floatingPassword" required>
 							</div>
 							<div class="form-group mb-3">
 								<label for="floatingSelect">Foto</label>
 								<input type="file" name="foto" class="form-control" id="floatingSelect"
-									accept="image/jpeg">
+									accept="image/jpeg" required>
 							</div>
 						</div>
 						<div class="modal-footer">
