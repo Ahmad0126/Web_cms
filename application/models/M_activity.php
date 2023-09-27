@@ -154,7 +154,7 @@ class M_activity extends CI_Model{
     //Bagian konten
     //Read
     public function get_konten(){
-        $this->db->select('judul, '.$this->_table.'.nama_kategori, id_konten, tanggal, '.$this->table2.'.nama, foto');
+        $this->db->select('judul, '.$this->_table.'.nama_kategori, id_konten, tanggal, '.$this->table2.'.nama, foto, slug');
         $this->db->from($this->table1);
         $this->db->join($this->_table, $this->_table.'.id_kategori = '.$this->table1.'.id_kategori');
         $this->db->join($this->table2, $this->table2.'.username = '.$this->table1.'.username');
