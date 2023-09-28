@@ -49,7 +49,7 @@
                             <span class="author"><i class="fas fa-user"></i> <?= $fer->nama ?></span>
                             <span class="date"><i class="fas fa-calendar"></i> <?= $fer->tanggal ?></span>
                         </p>
-                        <p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
+                        <p class="excerpt"><?= substr($fer->keterangan, 0, 120) ?><?= strlen($fer->keterangan) > 120 ? '...' : '' ?></p>
                         <a href="<?= base_url('home/artikel/').$fer->slug ?>" class="read-more-btn">baca selengkapnya <i class="fas fa-angle-right"></i></a>
                     </div>
                 </div>

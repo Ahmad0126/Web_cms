@@ -9,7 +9,7 @@ class Home extends CI_Controller {
     }
 	public function index(){
 		$data['kategori'] = $this->M_activity->get_kategori();
-		$data['konten'] = $this->M_activity->get_konten();
+		$data['konten'] = $this->M_activity->get_konten(6);
 		$data['carousel'] = $this->M_activity->get_carousel();
 		$data['konfig'] = $this->M_user->get_konfig();
 		$this->template->load('layout/fruitkha/template', 'beranda', 'Beranda', $data);
