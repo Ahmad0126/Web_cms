@@ -14,4 +14,10 @@ class Home extends CI_Controller {
 		$data['konfig'] = $this->M_user->get_konfig();
 		$this->template->load('layout/fruitkha/template', 'beranda', 'Beranda', $data);
 	}
+	public function artikel($slug){
+		$data['kategori'] = $this->M_activity->get_kategori();
+		$data['konten'] = $this->M_activity->get_konten_by_slug($slug);
+		$data['konfig'] = $this->M_user->get_konfig();
+		$this->template->load('layout/fruitkha/template', 'konten', 'Beranda', $data);
+	}
 }
