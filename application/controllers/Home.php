@@ -14,11 +14,16 @@ class Home extends CI_Controller {
 		$data['konfig'] = $this->M_user->get_konfig();
 		$this->template->load('layout/fruitkha/template', 'beranda', 'Beranda | '.$data['konfig']['judul_website'], $data);
 	}
-	public function artikel($slug){
+	public function artikel($slug = null){
 		$data['kategori'] = $this->M_activity->get_kategori();
-		$data['konten'] = $this->M_activity->get_konten_by_slug($slug);
 		$data['konfig'] = $this->M_user->get_konfig();
-		$this->template->load('layout/fruitkha/template', 'konten', $data['konten']->judul.' | '.$data['konfig']['judul_website'], $data);
+		if($slug != null){
+			$data['konten'] = $this->M_activity->get_konten_by_slug($slug);
+			$this->template->load('layout/fruitkha/template', 'konten', $data['konten']->judul.' | '.$data['konfig']['judul_website'], $data);
+		}else{
+			$data['konten'] = $this->M_activity->get_konten();
+			$this->template->load('layout/fruitkha/template', 'artikel', 'Artikel Lainnya | '.$data['konfig']['judul_website'], $data);
+		}
 	}
 	public function kategori($kategori){
 		$data['kategori'] = $this->M_activity->get_kategori();
