@@ -40,11 +40,11 @@
             <?php foreach($konten as $fer){ ?>
             <div class="col-lg-4 col-md-6">
                 <div class="single-latest-news">
-                    <a href="single-news.html">
+                    <a href="<?= base_url('home/artikel/').$fer->slug ?>">
                         <div class="latest-news-bg" style="background-image: url(<?= base_url('assets/upload/konten/').$fer->foto ?>);"></div>
                     </a>
                     <div class="news-text-box">
-                        <h3><a href="single-news.html"><?= $fer->judul ?></a></h3>
+                        <h3><a href="<?= base_url('home/artikel/').$fer->slug ?>"><?= $fer->judul ?></a></h3>
                         <p class="blog-meta">
                             <span class="author"><i class="fas fa-user"></i> <?= $fer->nama ?></span>
                             <span class="date"><i class="fas fa-calendar"></i> <?= $fer->tanggal ?></span>
