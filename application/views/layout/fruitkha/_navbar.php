@@ -54,9 +54,11 @@
 				<span class="close-btn"><i class="fas fa-window-close"></i></span>
 				<div class="search-bar">
 					<div class="search-bar-tablecell">
-						<h3>Search For:</h3>
-						<input type="text" placeholder="Keywords">
-						<button type="submit">Search <i class="fas fa-search"></i></button>
+						<form action="<?= base_url('home/cari') ?>" method="get">
+							<h3>Cari Artikel:</h3>
+							<input type="text" name="key" placeholder="Masukkan Kata Kunci" required minlength="3">
+							<button type="submit">Cari <i class="fas fa-search"></i></button>
+						</form>
 					</div>
 				</div>
 			</div>

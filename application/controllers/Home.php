@@ -31,4 +31,11 @@ class Home extends CI_Controller {
 		$data['konfig'] = $this->M_user->get_konfig();
 		$this->template->load('layout/fruitkha/template', 'artikel', $kategori.' | '.$data['konfig']['judul_website'], $data);
 	}
+	public function cari(){
+		$keyword = $this->input->get('key');
+		$data['konten'] = $this->M_activity->get_konten_by_keyword($keyword);
+		$data['kategori'] = $this->M_activity->get_kategori();
+		$data['konfig'] = $this->M_user->get_konfig();
+		$this->template->load('layout/fruitkha/template', 'artikel', 'cari: '.$keyword.' | '.$data['konfig']['judul_website'], $data);
+	}
 }
