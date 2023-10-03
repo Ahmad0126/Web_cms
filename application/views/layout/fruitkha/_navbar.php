@@ -55,7 +55,13 @@
 				<div class="search-bar">
 					<div class="search-bar-tablecell">
 						<form action="<?= base_url('home/cari') ?>" method="get">
-							<h3>Cari Artikel:</h3>
+							<div class="d-flex justify-content-center">
+								<h3>Cari Artikel:</h3>
+								<select name="berdasarkan" class="form-control w-auto">
+									<option value="judul">Berdasarkan judul</option>
+									<option value="keterangan">Berdasarkan isi konten</option>
+								</select>
+							</div>
 							<input type="text" name="key" placeholder="Masukkan Kata Kunci" required minlength="3">
 							<button type="submit">Cari <i class="fas fa-search"></i></button>
 						</form>

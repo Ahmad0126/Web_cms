@@ -181,8 +181,7 @@ class M_activity extends CI_Model{
         $this->db->from($this->table1);
         $this->db->join($this->_table, $this->_table.'.id_kategori = '.$this->table1.'.id_kategori');
         $this->db->join($this->table2, $this->table2.'.username = '.$this->table1.'.username');
-        $this->db->like('judul', $keyword);
-        $this->db->or_like('keterangan', $keyword);
+        $this->db->like($this->input->get('berdasarkan'), $keyword);
         return $this->db->get()->result();
     }
     public function get_konten_by_id($id){
