@@ -26,7 +26,7 @@
                             <span class="date"><i class="fas fa-calendar"></i> <?= $konten->tanggal ?></span>
                         </p>
                         <h2><?= $konten->judul ?></h2>
-                        <p><?= $konten->keterangan ?></p>
+                        <p><?= nl2br($konten->keterangan) ?></p>
                     </div>
                 </div>
             </div>
