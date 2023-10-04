@@ -35,11 +35,9 @@
                     <div class="recent-posts">
                         <h4>Recent Posts</h4>
                         <ul>
-                            <li><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></li>
-                            <li><a href="single-news.html">A man's worth has its season, like tomato.</a></li>
-                            <li><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></li>
-                            <li><a href="single-news.html">Fall in love with the fresh orange</a></li>
-                            <li><a href="single-news.html">Why the berries always look delecious</a></li>
+                            <?php foreach($recent_post as $fer){ ?>
+                            <li><a href="<?= base_url('home/artikel/').$fer->slug ?>"><?= $fer->judul ?></a></li>
+                            <?php } ?>
                         </ul>
                     </div>
                     <div class="archive-posts">

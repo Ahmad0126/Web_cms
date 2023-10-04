@@ -29,13 +29,13 @@
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6">
-				<div class="footer-box subscribe">
-					<h2 class="widget-title">Subscribe</h2>
-					<p>Subscribe to our mailing list to get the latest updates.</p>
-					<form>
-						<input type="email" placeholder="Email">
-						<button type="submit"><i class="fas fa-paper-plane"></i></button>
-					</form>
+				<div class="footer-box pages">
+					<h2 class="widget-title">Artikel Terbaru</h2>
+					<ul>
+						<?php foreach($recent_post as $fer){ ?>
+						<li><a href="<?= base_url('home/artikel/').$fer->slug ?>"><?= $fer->judul ?></a></li>
+						<?php } ?>
+					</ul>
 				</div>
 			</div>
 		</div>

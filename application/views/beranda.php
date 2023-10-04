@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="section-title mb-5">	
-                    <h3>Lihat <span class="orange-text">Artikel</span></h3>
+                    <h3>Artikel <span class="orange-text">Terbaru</span></h3>
                 </div>
             </div>
         </div>
