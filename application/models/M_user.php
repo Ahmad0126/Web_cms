@@ -107,6 +107,11 @@ class M_user extends CI_Model{
             return FALSE;
         }
     }
+    public function set_login($user){
+        date_default_timezone_set("Asia/Bangkok");
+        $this->db->where('username',$user);
+        $this->db->update($this->_table, array('last_login' => date('Y-m-d H:i:s')));
+    }
     //Delete
     public function delete($id){
         $this->db->delete($this->_table, array('id_user' => $id));

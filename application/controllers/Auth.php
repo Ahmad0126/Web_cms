@@ -17,6 +17,7 @@ class Auth extends CI_Controller {
                 $this->session->set_userdata('id', $cek['id_user']);
                 $this->session->set_userdata('nama', $cek['nama']);
                 $this->session->set_userdata('username', $cek['username']);
+                $this->M_user->set_login($user);
                 redirect(base_url('admin/home'));
             }else{
                 $this->session->set_flashdata('username_val', $user);
