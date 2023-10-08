@@ -16,12 +16,15 @@
 						<th scope="col">Username</th>
 						<th scope="col">Nama</th>
 						<th scope="col">Level</th>
+						<th scope="col">Terakhir login</th>
 						<th scope="col">Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php 
 					$no = 1;
+					date_default_timezone_set('Asia/bangkok');
+					$now = date('Y-m-d H:i:s');
 					foreach($user as $fer): 
 					?>
 					<tr>
@@ -29,6 +32,11 @@
 						<td><?= $fer->username ?></td>
 						<td><?= $fer->nama ?></td>
 						<td><?= $fer->level ?></td>
+						<td>
+							<a data-toggle="tooltip" data-placement="top" data-title="<?= $fer->last_login ?>">
+								<?= $this->template->translate_waktu($fer->last_login, $now) ?>
+							</a>
+						</td>
 						<td>
 							<?php if($fer->id_user != $this->session->userdata('id')){ ?>
 							<a class="btn btn-sm btn-primary" href="<?= base_url('admin/user/edit/').$fer->id_user ?>">Edit</a>
