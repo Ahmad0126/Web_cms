@@ -153,12 +153,12 @@ class M_activity extends CI_Model{
 
     //Bagian konten
     //Read
-    public function get_konten($limit = null){
+    public function get_konten($limit = null, $start = 0){
         $this->db->from($this->table1);
         $this->db->join($this->_table, $this->_table.'.id_kategori = '.$this->table1.'.id_kategori');
         $this->db->join($this->table2, $this->table2.'.username = '.$this->table1.'.username');
         if($limit != null){
-            $this->db->limit($limit);
+            $this->db->limit($limit, $start);
         }
         $this->db->order_by('id_konten', 'DESC');
         return $this->db->get()->result();
@@ -170,18 +170,20 @@ class M_activity extends CI_Model{
         $this->db->where('slug', $slug);
         return $this->db->get()->row();
     }
-    public function get_konten_by_kategori($kategori){
+    public function get_konten_by_kategori($kategori, $limit, $start){
         $this->db->from($this->table1);
         $this->db->join($this->_table, $this->_table.'.id_kategori = '.$this->table1.'.id_kategori');
         $this->db->join($this->table2, $this->table2.'.username = '.$this->table1.'.username');
         $this->db->where('nama_kategori', $kategori);
+        $this->db->limit($limit, $start);
         return $this->db->get()->result();
     }
-    public function get_konten_by_keyword($keyword){
+    public function get_konten_by_keyword($keyword, $limit, $start){
         $this->db->from($this->table1);
         $this->db->join($this->_table, $this->_table.'.id_kategori = '.$this->table1.'.id_kategori');
         $this->db->join($this->table2, $this->table2.'.username = '.$this->table1.'.username');
         $this->db->like($this->input->get('berdasarkan'), $keyword);
+        $this->db->limit($limit, $start);
         return $this->db->get()->result();
     }
     public function get_konten_by_id($id){
@@ -189,6 +191,9 @@ class M_activity extends CI_Model{
     }
     public function cek_judul($judul){
         return $this->db->where('judul', $judul)->count_all_results($this->table1);
+    }
+    public function cek_rows(){
+        return $this->db->get($this->table1)->num_rows();
     }
     //Create
     private function insert_konten($data){

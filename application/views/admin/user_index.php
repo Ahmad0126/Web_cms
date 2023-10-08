@@ -9,7 +9,7 @@
 			<a href="<?= base_url('admin/user/tambah') ?>" class="btn btn-primary">Tambah</a>
 		</div>
 		<div class="table-responsive">
-			<table class="table text-start align-middle table-bordered table-hover mb-0">
+			<table class="table text-start align-middle table-hover mb-0">
 				<thead>
 					<tr class="text-dark">
 						<th scope="col">No</th>
