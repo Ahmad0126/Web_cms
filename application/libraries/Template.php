@@ -15,6 +15,9 @@ class Template{
     }
 
     function translate_waktu($waktu, $sekarang){
+        if($waktu == null){
+            return "Belum pernah Login";
+        }
         $splitter = explode(" ", $waktu);
         $hari = explode("-", $splitter[0]);
         $jam = explode(":", $splitter[1]);
