@@ -3,22 +3,6 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 col-md-6">
-				<div class="footer-box about-widget">
-					<h2 class="widget-title">About us</h2>
-					<p><?= $konfig['profil_website'] ?></p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="footer-box get-in-touch">
-					<h2 class="widget-title">Get in Touch</h2>
-					<ul>
-						<li><?= $konfig['alamat'] ?></li>
-						<li><?= $konfig['email'] ?></li>
-						<li><?= $konfig['no_wa'] ?></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
 				<div class="footer-box pages">
 					<h2 class="widget-title">Kategori</h2>
 					<ul>
@@ -35,6 +19,22 @@
 						<?php foreach($recent_post as $fer){ ?>
 						<li><a href="<?= base_url('home/artikel/').$fer->slug ?>"><?= $fer->judul ?></a></li>
 						<?php } ?>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box about-widget">
+					<h2 class="widget-title">About us</h2>
+					<p><?= $konfig['profil_website'] ?></p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box get-in-touch">
+					<h2 class="widget-title">Get in Touch</h2>
+					<ul>
+						<li><?= $konfig['alamat'] ?></li>
+						<li><?= $konfig['email'] ?></li>
+						<li><?= $konfig['no_wa'] ?></li>
 					</ul>
 				</div>
 			</div>

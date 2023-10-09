@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
-	protected $data_per_page = 9;
+	protected $data_per_page = 6;
 	public function __construct(){
         parent::__construct();
         $this->load->model('M_activity');
