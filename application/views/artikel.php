@@ -54,7 +54,7 @@
                         <h4><?= $fer['kategori'] ?></h4>
                         <ul>
                         <?php foreach($fer['data'] as $data){ ?>
-                            <li><a href="<?= base_url('artikel/').$data->slug ?>"><?= $data->judul ?></a></li>
+                            <li><a href="<?= base_url('home/artikel/').$data->slug ?>"><?= $data->judul ?></a></li>
                         <?php } ?>
                         </ul>
                     </div>
