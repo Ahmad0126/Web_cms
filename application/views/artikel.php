@@ -49,16 +49,16 @@
                             <?php } ?>
                         </ul>
                     </div>
+                    <?php foreach($sidebar_kategori as $fer){ ?>
                     <div class="archive-posts">
-                        <h4>Archive Posts</h4>
+                        <h4><?= $fer['kategori'] ?></h4>
                         <ul>
-                            <li><a href="single-news.html">JAN 2019 (5)</a></li>
-                            <li><a href="single-news.html">FEB 2019 (3)</a></li>
-                            <li><a href="single-news.html">MAY 2019 (4)</a></li>
-                            <li><a href="single-news.html">SEP 2019 (4)</a></li>
-                            <li><a href="single-news.html">DEC 2019 (3)</a></li>
+                        <?php foreach($fer['data'] as $data){ ?>
+                            <li><a href="<?= base_url('artikel/').$data->slug ?>"><?= $data->judul ?></a></li>
+                        <?php } ?>
                         </ul>
                     </div>
+                    <?php } ?>
                     <div class="tag-section">
                         <h4>Tags</h4>
                         <ul>

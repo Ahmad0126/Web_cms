@@ -12,6 +12,7 @@ class Home extends CI_Controller {
 		$data['kategori'] = $this->M_activity->get_kategori();
 		$data['konfig'] = $this->M_user->get_konfig();
 		$data['recent_post'] = $this->M_activity->get_konten(5);
+		$data['sidebar_kategori'] = $this->M_activity->get_sidebar();
 		return $data;
 	}
 	private function init_pagination(){

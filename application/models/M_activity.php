@@ -150,6 +150,9 @@ class M_activity extends CI_Model{
             return FALSE;
         }
     }
+    public function include_kategori($id, $status){
+        return $this->update_kategori(array('sidebar' => $status), $id);
+    }
 
     //Bagian konten
     //Read
@@ -170,7 +173,7 @@ class M_activity extends CI_Model{
         $this->db->where('slug', $slug);
         return $this->db->get()->row();
     }
-    public function get_konten_by_kategori($kategori, $limit, $start){
+    public function get_konten_by_kategori($kategori, $limit, $start = null){
         $this->db->from($this->table1);
         $this->db->join($this->_table, $this->_table.'.id_kategori = '.$this->table1.'.id_kategori');
         $this->db->join($this->table2, $this->table2.'.username = '.$this->table1.'.username');
@@ -185,6 +188,15 @@ class M_activity extends CI_Model{
         $this->db->like($this->input->get('berdasarkan'), $keyword);
         $this->db->limit($limit, $start);
         return $this->db->get()->result();
+    }
+    public function get_sidebar(){
+        $kategori = $this->db->get_where($this->_table, array('sidebar' => 'on'))->result();
+        $data = array();
+        $no = 0;
+        foreach($kategori as $fer){
+            $data += array($no++ => array('kategori' => $fer->nama_kategori, 'data' => $this->get_konten_by_kategori($fer->nama_kategori, 5)));
+        }
+        return $data;
     }
     public function get_konten_by_id($id){
         return $this->db->get_where($this->table1, array('id_konten' => $id))->row_array();

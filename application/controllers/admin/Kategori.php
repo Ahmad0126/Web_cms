@@ -56,4 +56,15 @@ class Kategori extends CI_Controller {
 			redirect(base_url('admin/kategori'));
         }
 	}
+	public function include($id){
+		if($this->input->post('id') != null){
+			$status = 'on';
+			$this->session->set_flashdata('alert',$this->notif->set('Kategori ditampilkan!', 'success'));
+		}else{
+			$status = 'off';
+			$this->session->set_flashdata('alert',$this->notif->set('Kategori tidak ditampilkan!', 'warning'));
+		}
+		$this->M_activity->include_kategori($id, $status);
+		redirect(base_url('admin/kategori'));
+	}
 }

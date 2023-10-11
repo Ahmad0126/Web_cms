@@ -14,6 +14,7 @@
 					<tr class="text-dark table-primary">
 						<th class="text-start" scope="col">No</th>
 						<th class="text-center" scope="col">Nama Kategori</th>
+						<th class="text-center" scope="col">Tampilkan di sidebar</th>
 						<th style="text-align:end;" scope="col">Aksi</th>
 					</tr>
 				</thead>
@@ -23,8 +24,14 @@
 					foreach($kategori as $fer): 
 					?>
 					<tr>
-						<td class="text-start"><?= $no++ ?></td>
+						<td class="text-start"><?= $no ?></td>
 						<td class="text-center"><?= $fer->nama_kategori ?></td>
+						<td class="text-center">
+							<form action="<?= base_url('admin/kategori/include/').$fer->id_kategori ?>" method="post">
+								<input type="checkbox" value="<?= $fer->id_kategori ?>" <?= $fer->sidebar == 'on' ? 'checked' : '' ?> name="id" id="kategori<?= $no ?>" onchange="this.form.submit()">
+								<label for="kategori<?= $no++ ?>">Tampilkan</label>
+							</form>
+						</td>
 						<td style="text-align:end;">
 							<a class="btn btn-sm btn-primary" href="<?= base_url('admin/kategori/edit/').$fer->id_kategori ?>">Edit</a>
 							<a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus kategori ini?')" href="<?= base_url('admin/kategori/hapus_kategori/').$fer->id_kategori ?>">Hapus <i class="fa fa-trash"></i></a>
