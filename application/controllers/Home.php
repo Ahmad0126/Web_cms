@@ -65,4 +65,8 @@ class Home extends CI_Controller {
 		$data['konten'] = $this->M_activity->get_konten_by_keyword($keyword, $this->data_per_page, $this->uri->segment(3));
 		$this->template->load('layout/fruitkha/template', 'artikel', 'cari: '.$keyword.' | '.$data['konfig']['judul_website'], $data);
 	}
+	public function saran(){
+		$data = $this->get_basic_data();
+		$this->template->load('layout/fruitkha/template', 'saran', 'Kontak dan saran', $data);
+	}
 }

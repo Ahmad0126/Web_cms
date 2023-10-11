@@ -12,7 +12,7 @@
                             <h1>Delicious Seasonal Fruits</h1>
                             <div class="hero-btns">
                                 <a href="shop.html" class="boxed-btn">Fruit Collection</a>
-                                <a href="contact.html" class="bordered-btn">Contact Us</a>
+                                <a href="<?= base_url('home/saran') ?>" class="bordered-btn">Contact Us</a>
                             </div>
                         </div>
                     </div>
