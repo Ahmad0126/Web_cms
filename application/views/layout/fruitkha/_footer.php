@@ -25,7 +25,7 @@
 			<div class="col-lg-3 col-md-6">
 				<div class="footer-box about-widget">
 					<h2 class="widget-title">About us</h2>
-					<p><?= $konfig['profil_website'] ?></p>
+					<p><?= nl2br($konfig['profil_website']) ?></p>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6">

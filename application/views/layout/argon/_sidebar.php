@@ -91,6 +91,11 @@
 						<i class="ni ni-bullet-list-67 text-red"></i> Konten
 					</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="<?= base_url('admin/saran') ?>">
+						<i class="ni ni-email-83 text-gray"></i> Masukan
+					</a>
+				</li>
 				<?php if($this->session->userdata('level')=='admin'){ ?>
 				<li class="nav-item">
 					<a class="nav-link <?= $menu == 'user' ? 'active' : '' ?>" href="<?= base_url('admin/user') ?>">
