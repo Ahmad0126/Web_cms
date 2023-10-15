@@ -1,3 +1,6 @@
+
+
+
 <div class="container-fluid pt-4 px-4">
 	<?= $this->session->flashdata('alert'); ?>
 </div>
@@ -33,17 +36,9 @@
 						<td class="text-center"><?= $fer->tanggal ?></td>
 						<td class="text-center"><?= $fer->nama ?></td>
 						<td class="text-center">
-							<a class="btn btn-sm " href="#" data-toggle="modal" type="button" data-target="#tambahModal<?= $no ?>">
+							<a class="btn btn-sm" href="<?= base_url('assets/upload/konten/').$fer->foto ?>" id="c2">
 								<i class="fa fa-search"></i> Lihat foto
 							</a>
-							<div class="modal fade" id="tambahModal<?= $no ?>" tabindex="-1" role="dialog" aria-hidden="true">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-
-										<img src="<?= base_url('assets/upload/konten/').$fer->foto ?>" style="max-width: 500px; max-height: 350px;" alt="">
-									</div>
-								</div>
-							</div>
 							
 						</td>
 						<td style="text-align:end;">
