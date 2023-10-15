@@ -7,6 +7,7 @@ class M_activity extends CI_Model{
     protected $table1 = 'konten';
     protected $table2 = 'user';
     protected $table3 = 'caraousel';
+    protected $table4 = 'saran';
     protected $rules1 = [
         [
             'field' => 'kategori',
@@ -55,6 +56,23 @@ class M_activity extends CI_Model{
             'rules' => 'required'
         ]
     ];
+    protected $rules5 = [
+        [
+            'field' => 'nama',
+            'label' => 'Nama',
+            'rules' => 'required'
+        ],
+        [
+            'field' => 'pesan',
+            'label' => 'Pesan',
+            'rules' => 'required'
+        ],
+        [
+            'field' => 'email',
+            'label' => 'Email',
+            'rules' => 'required|valid_email'
+        ]
+    ];
     protected $default_rules;
     protected $update_konten;
 
@@ -100,6 +118,19 @@ class M_activity extends CI_Model{
                 ];
             }
             return $konten;
+        }
+        return FALSE;
+    }
+    private function validation_saran(){
+        $this->form_validation->set_rules($this->default_rules);
+        if ($this->form_validation->run()){
+            $data = [
+                'nama' => $this->input->post('nama'),
+                'email' => $this->input->post('email'),
+                'pesan' => $this->input->post('pesan'),
+                'tanggal' => date('Y-m-d')
+            ];
+            return $data;
         }
         return FALSE;
     }
@@ -282,6 +313,42 @@ class M_activity extends CI_Model{
     public function delete_carousel($foto){
         unlink('assets/upload/carousel/'.$foto);
         $this->db->delete($this->table3, array('foto' => $foto));
+        return TRUE;
+    }
+
+    //Bagian saran
+    //Read
+    public function get_saran(){
+        $this->db->order_by('tanggal', 'ASC');
+        return $this->db->get($this->table4)->result();
+    }
+    public function get_saran_by_id($id){
+        return $this->db->get_where($this->table4, array('id_saran' => $id))->row_array();
+    }
+    //Create
+    public function insert_data_saran(){
+        $this->default_rules = $this->rules5;
+        $validation_saran = $this->validation_saran();
+        if ($validation_saran){
+            return $this->insert_saran($validation_saran);
+        } else {
+            return FALSE;
+        }
+    }
+    private function insert_saran($data){
+        $this->db->insert($this->table4, $data);
+        return TRUE;
+    }
+    //Delete
+    public function delete_saran($id){
+        $this->db->delete($this->table4, array('id_saran' => $id));
+        return TRUE;
+    }
+    public function delete_all_saran(){
+        $saran = $this->get_saran();
+        foreach ($saran as $fer) {
+            $this->db->delete($this->table4, array('id_saran' => $fer->id_saran));
+        }
         return TRUE;
     }
 }

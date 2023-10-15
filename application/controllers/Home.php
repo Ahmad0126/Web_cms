@@ -69,4 +69,13 @@ class Home extends CI_Controller {
 		$data = $this->get_basic_data();
 		$this->template->load('layout/fruitkha/template', 'saran', 'Kontak dan saran', $data);
 	}
+	public function kirim(){
+		$this->load->library('notif');
+		if($this->M_activity->insert_data_saran()){
+			$this->session->set_flashdata('alert', $this->notif->set('Pesan anda berhasil dikirim!', 'success'));
+		}else{
+			$this->session->set_flashdata('alert', $this->notif->set('Pesan anda gagal dikirim!', 'danger'));
+		}
+		redirect(base_url('home/saran'));
+	}
 }

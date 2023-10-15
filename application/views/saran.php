@@ -6,6 +6,7 @@
                 <div class="breadcrumb-text">
                     <p>Get 24/7 Support</p>
                     <h1>Contact us</h1>
+                    <?= $this->session->flashdata('alert') ?>
                 </div>
             </div>
         </div>
