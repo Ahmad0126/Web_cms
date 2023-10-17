@@ -15,10 +15,10 @@ class Home extends CI_Controller {
 		$data['sidebar_kategori'] = $this->M_activity->get_sidebar();
 		return $data;
 	}
-	private function init_pagination(){
+	private function init_pagination($link){
 		$this->load->library('pagination');
 
-		$config['base_url'] = base_url('home/artikel');
+		$config['base_url'] = $link;
 		$config['total_rows'] = $this->M_activity->cek_rows();
 		$config['per_page'] = $this->data_per_page;
 		$config['first_tag_open'] = '<li>';
@@ -47,23 +47,27 @@ class Home extends CI_Controller {
 			$data['konten'] = $this->M_activity->get_konten_by_slug($slug);
 			$this->template->load('layout/fruitkha/template', 'konten', $data['konten']->judul.' | '.$data['konfig']['judul_website'], $data);
 		}else{
-			$this->init_pagination();
+			$this->init_pagination(base_url('home/artikel'));
 			$data['konten'] = $this->M_activity->get_konten($this->data_per_page, $this->uri->segment(3));
 			$this->template->load('layout/fruitkha/template', 'artikel', 'Artikel Lainnya | '.$data['konfig']['judul_website'], $data);
 		}
 	}
 	public function kategori($kategori){
 		$data = $this->get_basic_data();
-		$this->init_pagination();
+		$this->init_pagination(base_url('home/artikel'));
 		$data['konten'] = $this->M_activity->get_konten_by_kategori($kategori, $this->data_per_page, $this->uri->segment(3));
 		$this->template->load('layout/fruitkha/template', 'artikel', $kategori.' | '.$data['konfig']['judul_website'], $data);
 	}
 	public function cari(){
 		$keyword = $this->input->get('key');
 		$data = $this->get_basic_data();
-		$this->init_pagination();
+		$this->init_pagination(base_url('home/artikel'));
 		$data['konten'] = $this->M_activity->get_konten_by_keyword($keyword, $this->data_per_page, $this->uri->segment(3));
 		$this->template->load('layout/fruitkha/template', 'artikel', 'cari: '.$keyword.' | '.$data['konfig']['judul_website'], $data);
+	}
+	public function galeri(){
+		$data = $this->get_basic_data();
+		$this->template->load('layout/fruitkha/template', 'galeri', 'Galeri | '.$data['konfig']['judul_website'], $data);
 	}
 	public function saran(){
 		$data = $this->get_basic_data();
