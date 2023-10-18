@@ -271,8 +271,8 @@ class M_activity extends CI_Model{
     public function cek_judul($judul){
         return $this->db->where('judul', $judul)->count_all_results($this->table1);
     }
-    public function cek_rows(){
-        return $this->db->get($this->table1)->num_rows();
+    public function cek_rows($tabel){
+        return $this->db->get($tabel)->num_rows();
     }
     //Create
     private function insert_konten($data){
@@ -390,18 +390,16 @@ class M_activity extends CI_Model{
 
     //Bagian galeri
     //Read
-    public function get_galeri(){
+    public function get_galeri($limit = null, $indeks = null){
         $this->db->order_by('tanggal', 'DESC');
+        $this->db->limit($limit, $indeks);
         return $this->db->get($this->table5)->result();
     }
     public function get_galeri_by_id($id){
         return $this->db->get_where($this->table5, array('id_galeri' => $id))->row_array();
     }
     public function cek_judul_foto($judul){
-        return $this->db->where('judul', $judul)->count_all_results($this->table1);
-    }
-    public function cek_galery_rows(){
-        return $this->db->get($this->table5)->num_rows();
+        return $this->db->where('judul', $judul)->count_all_results($this->table5);
     }
     //Create
     public function insert_data_galeri(){

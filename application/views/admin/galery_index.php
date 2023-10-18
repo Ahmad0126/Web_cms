@@ -25,7 +25,7 @@
 					foreach($galery as $fer): 
 					?>
 					<tr>
-						<td class="text-start"><?= $no ?></td>
+						<td class="text-start"><?= $no++ ?></td>
 						<td class="text-center"><?= $fer->judul ?></td>
 						<td class="text-center"><?= $fer->tanggal ?></td>
 						<td class="text-center">
