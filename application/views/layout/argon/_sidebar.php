@@ -92,6 +92,11 @@
 					</a>
 				</li>
 				<li class="nav-item">
+					<a class="nav-link " href="<?= base_url('admin/galery') ?>">
+						<i class="fa fa-images"></i> Galeri Foto
+					</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link " href="<?= base_url('admin/saran') ?>">
 						<i class="ni ni-email-83 text-gray"></i> Masukan
 					</a>

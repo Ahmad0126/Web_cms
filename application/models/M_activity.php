@@ -8,6 +8,7 @@ class M_activity extends CI_Model{
     protected $table2 = 'user';
     protected $table3 = 'caraousel';
     protected $table4 = 'saran';
+    protected $table5 = 'galeri';
     protected $rules1 = [
         [
             'field' => 'kategori',
@@ -73,6 +74,18 @@ class M_activity extends CI_Model{
             'rules' => 'required|valid_email'
         ]
     ];
+    protected $rules6 = [
+        [
+            'field' => 'judul',
+            'label' => 'Judul',
+            'rules' => 'required'
+        ],
+        [
+            'field' => 'tanggal',
+            'label' => 'Tanggal',
+            'rules' => 'required'
+        ]
+    ];
     protected $default_rules;
     protected $update_konten;
 
@@ -118,6 +131,29 @@ class M_activity extends CI_Model{
                 ];
             }
             return $konten;
+        }
+        return FALSE;
+    }
+    private function validation_galeri(){
+        $this->form_validation->set_rules($this->default_rules);
+        $statusfoto = false;
+        $namafoto = date('YmdHis').'.jpg';
+        if($_FILES['foto']['name'] != ''){
+            $config['upload_path'] = 'assets/upload/galeri';
+            $config['max_size'] = 500 * 1024;
+            $config['overwrite'] = true;
+            $config['file_name'] = $namafoto;
+            $config['allowed_types'] = '*';
+            $this->load->library('upload', $config);
+            $statusfoto = $this->upload->do_upload('foto');
+        }
+        if ($this->form_validation->run() && $statusfoto){
+            $galeri = [
+                'judul' => $this->input->post('judul'),
+                'tanggal' => $this->input->post('tanggal'),
+                'foto' => $namafoto
+            ];
+            return $galeri;
         }
         return FALSE;
     }
@@ -349,6 +385,44 @@ class M_activity extends CI_Model{
         foreach ($saran as $fer) {
             $this->db->delete($this->table4, array('id_saran' => $fer->id_saran));
         }
+        return TRUE;
+    }
+
+    //Bagian galeri
+    //Read
+    public function get_galeri(){
+        $this->db->order_by('tanggal', 'DESC');
+        return $this->db->get($this->table5)->result();
+    }
+    public function get_galeri_by_id($id){
+        return $this->db->get_where($this->table5, array('id_galeri' => $id))->row_array();
+    }
+    public function cek_judul_foto($judul){
+        return $this->db->where('judul', $judul)->count_all_results($this->table1);
+    }
+    public function cek_galery_rows(){
+        return $this->db->get($this->table5)->num_rows();
+    }
+    //Create
+    public function insert_data_galeri(){
+        $this->default_rules = $this->rules6;
+        $validation_galeri = $this->validation_galeri();
+        if ($validation_galeri && $_FILES['foto']['size'] <= 500 * 1024){
+            return $this->insert_galeri($validation_galeri);
+        } else {
+            return FALSE;
+        }
+    }
+    private function insert_galeri($data){
+        $this->db->insert($this->table5, $data);
+        return TRUE;
+    }
+    //Delete
+    public function delete_galeri($id){
+        $galeri = $this->get_galeri_by_id($id);
+        $name = $galeri['foto'];
+        unlink('assets/upload/galeri/'.$name);
+        $this->db->delete($this->table5, array('id_galeri' => $id));
         return TRUE;
     }
 }

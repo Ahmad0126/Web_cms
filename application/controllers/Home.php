@@ -67,6 +67,7 @@ class Home extends CI_Controller {
 	}
 	public function galeri(){
 		$data = $this->get_basic_data();
+		$data['galeri'] = $this->M_activity->get_galeri();
 		$this->template->load('layout/fruitkha/template', 'galeri', 'Galeri | '.$data['konfig']['judul_website'], $data);
 	}
 	public function saran(){
