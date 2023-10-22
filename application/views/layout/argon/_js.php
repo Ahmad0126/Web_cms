@@ -3,7 +3,7 @@
 <script src="<?= base_url('assets/argon/') ?>assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Optional JS -->
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="<?= base_url('assets/') ?>fancybox/jquery.1.4.min.js"></script>
 <script>
     !window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
 </script>

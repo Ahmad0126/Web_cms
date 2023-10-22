@@ -71,33 +71,33 @@
 			</div>
 			<!-- Navigation -->
 			<ul class="navbar-nav">
-				<li class="nav-item <?= $menu == 'home' ? 'active' : '' ?>">
-					<a class="nav-link" href="<?= base_url('admin/home') ?>">
+				<li class="nav-item">
+					<a class="nav-link <?= $menu == 'home' ? 'active' : '' ?>" href="<?= base_url('admin/home') ?>">
 						<i class="ni ni-tv-2 text-primary"></i> Dashboard
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link " href="<?= base_url('admin/carousel') ?>">
+					<a class="nav-link <?= $menu == 'carousel' ? 'active' : '' ?>" href="<?= base_url('admin/carousel') ?>">
 						<i class="ni ni-planet text-blue"></i> Carousel
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link " href="<?= base_url('admin/kategori') ?>">
+					<a class="nav-link <?= $menu == 'kategori' ? 'active' : '' ?>" href="<?= base_url('admin/kategori') ?>">
 						<i class="ni ni-pin-3 text-orange"></i> Kategori Konten
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link " href="<?= base_url('admin/konten') ?>">
+					<a class="nav-link <?= $menu == 'konten' ? 'active' : '' ?>" href="<?= base_url('admin/konten') ?>">
 						<i class="ni ni-bullet-list-67 text-red"></i> Konten
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link " href="<?= base_url('admin/galery') ?>">
-						<i class="fa fa-images"></i> Galeri Foto
+					<a class="nav-link <?= $menu == 'galery' ? 'active' : '' ?>" href="<?= base_url('admin/galery') ?>">
+						<i class="fa fa-images text-success"></i> Galeri Foto
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link " href="<?= base_url('admin/saran') ?>">
+					<a class="nav-link <?= $menu == 'saran' ? 'active' : '' ?>" href="<?= base_url('admin/saran') ?>">
 						<i class="ni ni-email-83 text-gray"></i> Masukan
 					</a>
 				</li>
@@ -108,7 +108,7 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url('admin/konfigurasi') ?>">
+					<a class="nav-link <?= $menu == 'konfigurasi' ? 'active' : '' ?>" href="<?= base_url('admin/konfigurasi') ?>">
 						<i class="ni ni-key-25 text-info"></i> Konfigurasi
 					</a>
 				</li>
