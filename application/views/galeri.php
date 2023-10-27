@@ -20,7 +20,7 @@
             <?php foreach($galeri as $fer){ ?>
             <div class="col-lg-6 col-md-12 text-center">
                 <div class="single-latest-news">
-                    <a class="c2" href="<?= base_url('assets/upload/galeri/').$fer->foto ?>" data-fancybox>
+                    <a data-fancybox="gallery" href="<?= base_url('assets/upload/galeri/').$fer->foto ?>">
                         <img src="<?= base_url('assets/upload/galeri/').$fer->foto ?>">
                     </a>
                     <div class="news-text-box d-flex justify-content-between">

@@ -6,7 +6,7 @@
 	<div class="bg-light rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-4">
             <h4 class="mb-4">Masukan Pengunjung</h4>
-			<a href="<?= base_url('admin/saran/hapus_saran') ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus semua</a>
+			<a href="<?= base_url('admin/saran/hapus_saran') ?>" onclick="return confirm('Yakin ingin menghapus semua saran?')" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus semua</a>
 		</div>
 		<div class="table-responsive">
 			<table class="table text-start table-hover mb-0">

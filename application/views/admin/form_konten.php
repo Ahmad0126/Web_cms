@@ -1,6 +1,6 @@
 <div class="container-fluid pt-4 px-4">
     <div class="bg-light rounded h-100 p-4">
-        <h2 class="mb-4">Tambahkan Konten</h2>
+        <h2 class="mb-4"><?= isset($konten)? 'Edit' : 'Tambahkan' ?> Konten</h2>
         <form action="<?= isset($konten)? base_url('admin/konten/update_konten/').$konten['id_konten']: base_url('admin/konten/simpan')?>" method="post" enctype="multipart/form-data">
             <?php if(isset($konten)){ ?>
             <input type="hidden" name="nama_foto" value="<?= $konten['foto'] ?>">

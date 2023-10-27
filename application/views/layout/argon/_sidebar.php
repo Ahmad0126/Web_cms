@@ -98,7 +98,7 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link <?= $menu == 'saran' ? 'active' : '' ?>" href="<?= base_url('admin/saran') ?>">
-						<i class="ni ni-email-83 text-gray"></i> Masukan
+						<i class="ni ni-email-83 text-gray"></i> Saran
 					</a>
 				</li>
 				<?php if($this->session->userdata('level')=='admin'){ ?>
