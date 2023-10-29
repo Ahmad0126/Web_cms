@@ -32,9 +32,9 @@
 				<div class="footer-box get-in-touch">
 					<h2 class="widget-title">Get in Touch</h2>
 					<ul>
-						<li><?= $konfig['alamat'] ?></li>
-						<li><?= $konfig['email'] ?></li>
-						<li><?= $konfig['no_wa'] ?></li>
+						<li><i class="fab fa-location"></i> <?= $konfig['alamat'] ?></li>
+						<li><i class="fab fa-email"></i> <?= $konfig['email'] ?></li>
+						<li><i class="fab fa-whatsapp"></i> <?= $konfig['no_wa'] ?></li>
 					</ul>
 				</div>
 			</div>

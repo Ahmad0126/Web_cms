@@ -1,7 +1,7 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-dark bg-primary" id="navbar-main">
 	<div class="container-fluid">
 		<!-- Brand -->
-		<a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="<?= base_url() ?>">Dashboard</a>
+		<a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="<?= base_url('admin/home') ?>">Dashboard</a>
 		<form action="" class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto"></form>
 		<!-- User -->
 		<ul class="navbar-nav align-items-center d-none d-md-flex">
@@ -10,7 +10,7 @@
 					aria-expanded="false">
 					<div class="media align-items-center">
 						<span class="avatar avatar-sm rounded-circle">
-							<img alt="Image placeholder" src="<?= base_url('assets/argon/') ?>assets/img/theme/team-4-800x800.jpg">
+							<img alt="Image placeholder" src="<?= $this->session->userdata('profil') == null ? base_url('assets/argon/assets/img/theme/undraw_profile.svg') : base_url('assets/upload/profil/').$this->session->userdata('profil') ?>">
 						</span>
 						<div class="media-body ml-2 d-none d-lg-block">
 							<span class="mb-0 text-sm  font-weight-bold"><?= $this->session->userdata('nama') ?></span>
@@ -21,21 +21,9 @@
 					<div class=" dropdown-header noti-title">
 						<h6 class="text-overflow m-0">Welcome!</h6>
 					</div>
-					<a href="#" class="dropdown-item">
+					<a href="<?= base_url('admin/home/profil') ?>" class="dropdown-item">
 						<i class="ni ni-single-02"></i>
 						<span>My profile</span>
-					</a>
-					<a href="#" class="dropdown-item">
-						<i class="ni ni-settings-gear-65"></i>
-						<span>Settings</span>
-					</a>
-					<a href="#" class="dropdown-item">
-						<i class="ni ni-calendar-grid-58"></i>
-						<span>Activity</span>
-					</a>
-					<a href="#" class="dropdown-item">
-						<i class="ni ni-support-16"></i>
-						<span>Support</span>
 					</a>
 					<div class="dropdown-divider"></div>
 					<a href="<?= base_url('logout') ?>" class="dropdown-item">

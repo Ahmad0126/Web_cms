@@ -29,9 +29,9 @@
 						<td class="text-center"><?= $fer->judul ?></td>
 						<td class="text-center"><?= $fer->tanggal ?></td>
 						<td class="text-center">
-							<button data-toggle="modal" type="button" data-foto="<?= base_url('assets/upload/galeri/').$fer->foto ?>" data-target="#fotomodal" class="btn btn-sm">
+							<a data-toggle="modal" href="" type="button" data-foto="<?= base_url('assets/upload/galeri/').$fer->foto ?>" data-judul="<?= $fer->judul ?>" data-target="#fotomodal" class="btn btn-sm">
 								<i class="fa fa-search"></i> Lihat foto
-							</button>
+							</a>
                         </td>
 						<td style="text-align:end;">
 							<a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus foto ini?')" href="<?= base_url('admin/galery/hapus_galery/').$fer->id_galeri ?>">Hapus <i class="fa fa-trash"></i></a>

@@ -17,7 +17,7 @@
 					aria-expanded="false">
 					<div class="media align-items-center">
 						<span class="avatar avatar-sm rounded-circle">
-							<img alt="Image placeholder" src="<?= base_url('assets/argon/') ?>assets/img/theme/team-1-800x800.jpg">
+							<img alt="Image placeholder" src="<?= $this->session->userdata('profil') == null ? base_url('assets/argon/assets/img/theme/undraw_profile.svg') : base_url('assets/upload/profil/').$this->session->userdata('profil') ?>">
 						</span>
 					</div>
 				</a>
@@ -25,21 +25,9 @@
 					<div class=" dropdown-header noti-title">
 						<h6 class="text-overflow m-0">Welcome!</h6>
 					</div>
-					<a href="#" class="dropdown-item">
+					<a href="<?= base_url('admin/home/profil') ?>" class="dropdown-item">
 						<i class="ni ni-single-02"></i>
 						<span>My profile</span>
-					</a>
-					<a href="#" class="dropdown-item">
-						<i class="ni ni-settings-gear-65"></i>
-						<span>Settings</span>
-					</a>
-					<a href="#" class="dropdown-item">
-						<i class="ni ni-calendar-grid-58"></i>
-						<span>Activity</span>
-					</a>
-					<a href="#" class="dropdown-item">
-						<i class="ni ni-support-16"></i>
-						<span>Support</span>
 					</a>
 					<div class="dropdown-divider"></div>
 					<a href="<?= base_url('logout') ?>" class="dropdown-item">

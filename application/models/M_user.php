@@ -97,6 +97,11 @@ class M_user extends CI_Model{
         $this->db->update($this->_table, $data);
         return TRUE;
     }
+    public function update_user_data($data, $id){
+        $this->db->where('id_user',$id);
+        $this->db->update($this->_table, $data);
+        return TRUE;
+    }
     public function update_data_user($id){
         $this->default_rules = $this->rules2;
         $this->update = true;

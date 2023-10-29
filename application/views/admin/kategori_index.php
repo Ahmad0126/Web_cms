@@ -33,8 +33,8 @@
 							</form>
 						</td>
 						<td style="text-align:end;">
-							<a class="btn btn-sm btn-primary" href="" data-toggle="modal" data-target="#editkate" data-urlaction="<?= base_url('admin/kategori/update_kategori/').$fer->id_kategori ?>" data-valuenama="<?= $fer->nama_kategori ?>">Edit</a>
-							<a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus kategori ini?')" href="<?= base_url('admin/kategori/hapus_kategori/').$fer->id_kategori ?>">Hapus <i class="fa fa-trash"></i></a>
+							<a class="btn btn-sm btn-primary" href="" data-toggle="modal" data-target="#editkate" data-urlaction="<?= base_url('admin/kategori/update_kategori/').$fer->id_kategori ?>" data-valuenama="<?= $fer->nama_kategori ?>">Edit <i class="fa fa-edit"></i></a>
+							<a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus kategori ini?')" href="<?= base_url('admin/kategori/hapus_kategori/').$fer->id_kategori ?>"><i class="fa fa-trash"></i> Hapus</a>
 						</td>
 					</tr>
 					<?php endforeach ?>
@@ -71,7 +71,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Tambahkan Kategori</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Edit Kategori</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>

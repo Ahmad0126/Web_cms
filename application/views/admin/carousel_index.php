@@ -47,7 +47,7 @@
         <img class="card-img-top" src="<?= base_url('assets/upload/carousel/').$fer->foto ?>" alt="">
         <div class="card-body d-flex align-items-center justify-content-between">
             <h4><?= $fer->judul ?></h4>
-            <a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus foto ini?')" href="<?= base_url('admin/carousel/hapus_carousel/').$fer->foto ?>">Hapus <i class="fa fa-trash"></i></a>
+            <a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus foto ini?')" href="<?= base_url('admin/carousel/hapus_carousel/').$fer->foto ?>"><i class="fa fa-trash"></i> Hapus</a>
         </div>
     </div>
 </div>

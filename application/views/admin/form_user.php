@@ -1,6 +1,6 @@
 <div class="container-fluid pt-4 px-4">
     <div class="bg-light rounded h-100 p-4">
-        <h6 class="mb-4">Form pendaftaran</h6>
+        <h2 class="mb-4">Form user</h2>
         <form action="<?= isset($user)? base_url('admin/user/update_user/').$user['id_user']: base_url('admin/user/simpan')?>" method="post">
             <div class="form-group mb-3">
                 <label for="floatingInput">Username</label>

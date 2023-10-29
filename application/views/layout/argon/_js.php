@@ -20,6 +20,14 @@
 		modal.find('.modal-body img').attr('src', foto);
 		modal.find('.modal-title').text(judul);
 	});
+    $('#saranmodal').on('show.bs.modal', function(event){
+        var button = $(event.relatedTarget);
+		var pesan = button.data('pesan');
+		var nama = button.data('nama');
+		var modal = $(this);
+		modal.find('.modal-body p').text(pesan);
+		modal.find('.modal-title').text("Pesan dari "+nama);
+	});
     $('#editkate').on('show.bs.modal', function(event){
         var button = $(event.relatedTarget);
 		var urlaction = button.data('urlaction');

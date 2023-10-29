@@ -38,10 +38,10 @@
 							</a>
 						</td>
 						<td>
+							<a class="btn btn-sm btn-primary" href="<?= base_url('admin/user/edit/').$fer->id_user ?>"><i class="fa fa-edit"></i> Edit</a>
 							<?php if($fer->id_user != $this->session->userdata('id')){ ?>
-							<a class="btn btn-sm btn-primary" href="<?= base_url('admin/user/edit/').$fer->id_user ?>">Edit</a>
-							<a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus user ini?')" href="<?= base_url('admin/user/hapus_user/').$fer->id_user ?>">Hapus <i class="fa fa-trash"></i></a>
-							<?php }else{ echo "Tidak ada"; } ?>
+							<a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus user ini?')" href="<?= base_url('admin/user/hapus_user/').$fer->id_user ?>"><i class="fa fa-trash"></i> Hapus</a>
+							<?php } ?>
 						</td>
 					</tr>
 					<?php endforeach ?>

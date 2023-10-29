@@ -14,13 +14,6 @@ class Kategori extends CI_Controller {
 		$data['kategori'] = $this->M_activity->get_kategori();
 		$this->template->load('layout/argon/template', 'admin/kategori_index', 'Daftar kategori', $data);
 	}
-	public function tambah(){
-		$this->template->load('layout/argon/template', 'admin/form_kategori', 'Tambah kategori');
-	}
-	public function edit($id){
-		$data['kategori'] = $this->M_activity->get_kategori_by_id($id);
-		$this->template->load('layout/argon/template', 'admin/form_kategori', 'Edit kategori', $data);
-	}
 
 	//backend
 	public function hapus_kategori($id){

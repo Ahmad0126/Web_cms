@@ -5,8 +5,8 @@
 <div class="container-fluid pt-4 px-4">
 	<div class="bg-light rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-4">
-            <h4 class="mb-4">Masukan Pengunjung</h4>
-			<a href="<?= base_url('admin/saran/hapus_saran') ?>" onclick="return confirm('Yakin ingin menghapus semua saran?')" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus semua</a>
+            <h4 class="mb-0">Masukan Pengunjung</h4>
+			<a href="<?= base_url('admin/saran/hapus_saran') ?>" onclick="return confirm('Yakin ingin menghapus semua saran?')" class="btn btn-danger"><i class="fa fa-trash"></i> kosongkan</a>
 		</div>
 		<div class="table-responsive">
 			<table class="table text-start table-hover mb-0">
@@ -31,19 +31,34 @@
 						<td class="text-center"><?= $fer->tanggal ?></td>
 						<td style="text-align:end;">
                             <div class="dropdown">
-                                <a class="btn btn-sm btn-primary" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Lihat
+                                <a class="btn btn-sm btn-primary" href="" data-toggle="modal" data-target="#saranmodal" data-pesan="<?= $fer->pesan ?>" data-nama="<?= $fer->nama ?>">
+									<i class="fa fa-search"></i> Lihat
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                    <p class="dropdown-item"><?= nl2br($fer->pesan) ?></p>
-                                </div>
                             </div>
-							<a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus saran ini?')" href="<?= base_url('admin/saran/hapus_saran/').$fer->id_saran ?>">Hapus <i class="fa fa-trash"></i></a>
+							<a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus saran ini?')" href="<?= base_url('admin/saran/hapus_saran/').$fer->id_saran ?>"><i class="fa fa-trash"></i> Hapus</a>
 						</td>
 					</tr>
 					<?php endforeach ?>
 				</tbody>
 			</table>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="saranmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="exampleModalLabel"></h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body text-center">
+				<p></p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary" type="button" data-dismiss="modal">Tutup</button>
+			</div>
 		</div>
 	</div>
 </div>
