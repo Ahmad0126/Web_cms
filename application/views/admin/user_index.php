@@ -33,7 +33,8 @@
 						<td><?= $fer->nama ?></td>
 						<td><?= $fer->level ?></td>
 						<td>
-							<a data-toggle="tooltip" data-placement="top" data-title="<?= $fer->last_login ?>">
+							<?php $last_login = explode(" ", $fer->last_login); ?>
+							<a data-toggle="tooltip" data-placement="top" data-title="<?= $this->template->translate_bulan($last_login[0])." ".$last_login[1] ?>">
 								<?= $this->template->translate_waktu($fer->last_login, $now) ?>
 							</a>
 						</td>

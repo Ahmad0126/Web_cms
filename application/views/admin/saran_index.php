@@ -28,7 +28,7 @@
 						<td class="text-start"><?= $no ?></td>
 						<td class="text-center"><?= $fer->nama ?></td>
 						<td class="text-center"><?= $fer->email ?></td>
-						<td class="text-center"><?= $fer->tanggal ?></td>
+						<td class="text-center"><?= $this->template->translate_bulan($fer->tanggal) ?></td>
 						<td style="text-align:end;">
                             <div class="dropdown">
                                 <a class="btn btn-sm btn-primary" href="" data-toggle="modal" data-target="#saranmodal" data-pesan="<?= $fer->pesan ?>" data-nama="<?= $fer->nama ?>">

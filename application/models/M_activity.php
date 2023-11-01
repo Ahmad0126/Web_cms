@@ -199,6 +199,10 @@ class M_activity extends CI_Model{
     }
     //Delete
     public function delete($id){
+        $konten = $this->db->get_where($this->_table, array('id_kategori' => $id))->result();
+        foreach($konten as $fer){
+            $this->delete_konten($fer->id_konten);
+        }
         $this->db->delete($this->_table, array('id_kategori' => $id));
         return TRUE;
     }

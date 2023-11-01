@@ -37,7 +37,12 @@
         </div>
 
         <div class="row">
-            <?php foreach($konten as $fer){ ?>
+            <?php 
+                if($konten == null){
+                    echo '<div class="col text-center">Belum ada Artikel</div>';
+                }
+                foreach($konten as $fer){ 
+            ?>
             <div class="col-lg-4 col-md-6">
                 <div class="single-latest-news">
                     <a href="<?= base_url('home/artikel/').$fer->slug ?>">
@@ -47,7 +52,7 @@
                         <h3><a href="<?= base_url('home/artikel/').$fer->slug ?>"><?= $fer->judul ?></a></h3>
                         <p class="blog-meta">
                             <span class="author"><i class="fas fa-user"></i> <?= $fer->nama ?></span>
-                            <span class="date"><i class="fas fa-calendar"></i> <?= $fer->tanggal ?></span>
+                            <span class="date"><i class="fas fa-calendar"></i> <?= $this->template->translate_bulan($fer->tanggal) ?></span>
                         </p>
                         <p class="excerpt"><?= substr($fer->keterangan, 0, 120) ?><?= strlen($fer->keterangan) > 120 ? '...' : '' ?></p>
                         <a href="<?= base_url('home/artikel/').$fer->slug ?>" class="read-more-btn">baca selengkapnya <i class="fas fa-angle-right"></i></a>

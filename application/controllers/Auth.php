@@ -38,6 +38,13 @@ class Auth extends CI_Controller {
         redirect(base_url('auth'));
     }
 	public function err(){
-        $this->load->view('errors/html/err_404');
+        $this->load->model('M_user');
+        $data['konfig'] = $this->M_user->get_konfig();
+        $this->load->view('errors/html/err_404', $data);
+	}
+	public function err_403(){
+        $this->load->model('M_user');
+        $data['konfig'] = $this->M_user->get_konfig();
+        $this->load->view('errors/html/error_403', $data);
 	}
 }

@@ -17,7 +17,12 @@
 <div class="product-section mt-150 mb-150">
     <div class="container">
         <div class="row">
-            <?php foreach($galeri as $fer){ ?>
+            <?php 
+                if($galeri == null){
+                    echo '<div class="col text-center">Belum ada Postingan</div>';
+                }
+                foreach($galeri as $fer){ 
+            ?>
             <div class="col-lg-6 col-md-12 text-center">
                 <div class="single-latest-news">
                     <a data-fancybox="gallery" href="<?= base_url('assets/upload/galeri/').$fer->foto ?>">
@@ -26,7 +31,7 @@
                     <div class="news-text-box d-flex justify-content-between">
                         <h3><?= $fer->judul ?></h3>
                         <p class="blog-meta">
-                            <span class="date"><i class="fas fa-calendar"></i> <?= $fer->tanggal ?></span>
+                            <span class="date"><i class="fas fa-calendar"></i> <?= $this->template->translate_bulan($fer->tanggal) ?></span>
                         </p>
                     </div>
                 </div>

@@ -46,4 +46,19 @@ class Template{
             return ($hari_ini[0] - $hari[0])." tahun yang lalu";
         }
     }
+    function translate_bulan($tanggal){
+        if($tanggal == null){
+            return "Tidak Diketahui";
+        }
+
+        $nama_bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        
+        $splitter = explode("-", $tanggal);
+        $hari = $splitter[2];
+        $bulan = $splitter[1];
+        $tahun = $splitter[0];
+
+        $index = intval($bulan) - 1;
+        return $hari.' '.$nama_bulan[$index].' '.$tahun;
+    }
 }

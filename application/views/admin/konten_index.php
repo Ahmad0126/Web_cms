@@ -30,7 +30,7 @@
 						<td class="text-start"><?= $no++ ?></td>
 						<td class="text-center"><?= $fer->judul ?></td>
 						<td class="text-center"><?= $fer->nama_kategori ?></td>
-						<td class="text-center"><?= $fer->tanggal ?></td>
+						<td class="text-center"><?= $this->template->translate_bulan($fer->tanggal) ?></td>
 						<td class="text-center"><?= $fer->nama ?></td>
 						<td class="text-center">
 							<a href="" data-toggle="modal" type="button" data-foto="<?= base_url('assets/upload/konten/').$fer->foto ?>" data-judul="<?= $fer->judul ?>" data-target="#fotomodal" class="btn btn-sm">

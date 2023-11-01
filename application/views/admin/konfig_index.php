@@ -43,6 +43,14 @@
 			<div class="form-group mb-3">
 				<div class="input-group">
 					<div class="input-group-prepend mr-0">
+						<span class="input-group-text">Github</span>
+					</div>
+					<input type="text" name="github" class="form-control pl-2" value="<?= isset($konfig['github'])? $konfig['github']:''?>">
+				</div>
+			</div>
+			<div class="form-group mb-3">
+				<div class="input-group">
+					<div class="input-group-prepend mr-0">
 						<span class="input-group-text">Email</span>
 					</div>
 					<input type="text" name="email" class="form-control pl-2" value="<?= isset($konfig['email'])? $konfig['email']:''?>">

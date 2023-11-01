@@ -136,7 +136,8 @@ class M_user extends CI_Model{
             'facebook' => $this->input->post('facebook'),
             'email' => $this->input->post('email'),
             'alamat' => $this->input->post('alamat'),
-            'no_wa' => $this->input->post('no_wa')
+            'no_wa' => $this->input->post('no_wa'),
+            'github' => $this->input->post('github')
         ];
         $this->db->where('id_konfigurasi',1);
         return $this->db->update($this->table1, $data);

@@ -23,7 +23,7 @@
                         <div class="single-artcile-bg" style="background-image: url(<?= base_url('assets/upload/konten/').$konten->foto ?>);"></div>
                         <p class="blog-meta">
                             <span class="author"><i class="fas fa-user"></i> <?= $konten->nama ?></span>
-                            <span class="date"><i class="fas fa-calendar"></i> <?= $konten->tanggal ?></span>
+                            <span class="date"><i class="fas fa-calendar"></i> <?= $this->template->translate_bulan($konten->tanggal) ?></span>
                         </p>
                         <h2><?= $konten->judul ?></h2>
                         <p><?= nl2br($konten->keterangan) ?></p>
@@ -31,37 +31,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="sidebar-section">
-                    <div class="recent-posts">
-                        <h4>Recent Posts</h4>
-                        <ul>
-                            <?php foreach($recent_post as $fer){ ?>
-                            <li><a href="<?= base_url('home/artikel/').$fer->slug ?>"><?= $fer->judul ?></a></li>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                    <?php foreach($sidebar_kategori as $fer){ ?>
-                    <div class="archive-posts">
-                        <h4><?= $fer['kategori'] ?></h4>
-                        <ul>
-                        <?php foreach($fer['data'] as $data){ ?>
-                            <li><a href="<?= base_url('home/artikel/').$data->slug ?>"><?= $data->judul ?></a></li>
-                        <?php } ?>
-                        </ul>
-                    </div>
-                    <?php } ?>
-                    <div class="tag-section">
-                        <h4>Tags</h4>
-                        <ul>
-                            <li><a href="single-news.html">Apple</a></li>
-                            <li><a href="single-news.html">Strawberry</a></li>
-                            <li><a href="single-news.html">BErry</a></li>
-                            <li><a href="single-news.html">Orange</a></li>
-                            <li><a href="single-news.html">Lemon</a></li>
-                            <li><a href="single-news.html">Banana</a></li>
-                        </ul>
-                    </div>
-                </div>
+                <?php require_once('layout/fruitkha/_sidebar.php') ?>
             </div>
         </div>
     </div>

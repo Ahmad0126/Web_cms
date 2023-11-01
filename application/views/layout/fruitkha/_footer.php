@@ -55,6 +55,7 @@
 			<div class="col-lg-6 text-right col-md-12">
 				<div class="social-icons">
 					<ul>
+						<li><a href="<?= $konfig['github'] ?>" target="_blank"><i class="fab fa-github"></i></a></li>
 						<li><a href="<?= $konfig['facebook'] ?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 						<li><a href="<?= $konfig['instagram'] ?>" target="_blank"><i class="fab fa-instagram"></i></a></li>
 					</ul>

@@ -34,7 +34,7 @@
 						</td>
 						<td style="text-align:end;">
 							<a class="btn btn-sm btn-primary" href="" data-toggle="modal" data-target="#editkate" data-urlaction="<?= base_url('admin/kategori/update_kategori/').$fer->id_kategori ?>" data-valuenama="<?= $fer->nama_kategori ?>">Edit <i class="fa fa-edit"></i></a>
-							<a class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus kategori ini?')" href="<?= base_url('admin/kategori/hapus_kategori/').$fer->id_kategori ?>"><i class="fa fa-trash"></i> Hapus</a>
+							<a class="btn btn-sm btn-danger" onclick="return confirm('Semua konten yang menggunakan kategori ini akan ikut dihapus. Yakin ingin menghapus kategori ini?')" href="<?= base_url('admin/kategori/hapus_kategori/').$fer->id_kategori ?>"><i class="fa fa-trash"></i> Hapus</a>
 						</td>
 					</tr>
 					<?php endforeach ?>
