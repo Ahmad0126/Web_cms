@@ -18,3 +18,8 @@
 <script src="<?= base_url('assets/fruitkha/') ?>assets/js/sticker.js"></script>
 <!-- main js -->
 <script src="<?= base_url('assets/fruitkha/') ?>assets/js/main.js"></script>
+<script>
+    <?php if($this->session->flashdata('alert') != null){ ?>
+    $('#alertmodal').modal("show");
+	<?php } ?>
+</script>

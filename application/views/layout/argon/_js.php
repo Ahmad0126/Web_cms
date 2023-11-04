@@ -12,6 +12,9 @@
         application: "argon-dashboard-free"
     });
     $('.notifikasi').delay('slow').slideDown('slow').delay(4000).slideUp(600);
+	<?php if($this->session->flashdata('alert') != null){ ?>
+    $('#alertmodal').modal("show");
+	<?php } ?>
     $('#fotomodal').on('show.bs.modal', function(event){
         var button = $(event.relatedTarget);
 		var foto = button.data('foto');

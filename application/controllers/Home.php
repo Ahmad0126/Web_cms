@@ -15,11 +15,11 @@ class Home extends CI_Controller {
 		$data['sidebar_kategori'] = $this->M_activity->get_sidebar();
 		return $data;
 	}
-	private function init_pagination($link, $tabel){
+	private function init_pagination($link, $rows){
 		$this->load->library('pagination');
-
+		
 		$config['base_url'] = $link;
-		$config['total_rows'] = $this->M_activity->cek_rows($tabel);
+		$config['total_rows'] = $rows;
 		$config['per_page'] = $this->data_per_page;
 		$config['first_tag_open'] = '<li>';
 		$config['first_tag_close'] = '</li>';
@@ -45,17 +45,23 @@ class Home extends CI_Controller {
 		
 		if($slug != null && !intval($slug)){
 			$data['konten'] = $this->M_activity->get_konten_by_slug($slug);
-			$this->template->load('layout/fruitkha/template', 'konten', $data['konten']->judul.' | '.$data['konfig']['judul_website'], $data);
+			if($data['konten'] != null){
+				$this->template->load('layout/fruitkha/template', 'konten', $data['konten']->judul.' | '.$data['konfig']['judul_website'], $data);
+			}else{
+				redirect(base_url('err'));
+			}
 		}else{
-			$this->init_pagination(base_url('home/artikel'), 'konten');
+			$rows = $this->M_activity->cek_rows('konten');
+			$this->init_pagination(base_url('home/artikel'), $rows);
 			$data['konten'] = $this->M_activity->get_konten($this->data_per_page, $this->uri->segment(3));
 			$this->template->load('layout/fruitkha/template', 'artikel', 'Artikel Lainnya | '.$data['konfig']['judul_website'], $data);
 		}
 	}
 	public function kategori($kategori){
 		$data = $this->get_basic_data();
-		$this->init_pagination(base_url('home/artikel'), 'konten');
-		$data['konten'] = $this->M_activity->get_konten_by_kategori($kategori, $this->data_per_page, $this->uri->segment(3));
+		$rows = $this->M_activity->cek_rows_by_kategori($kategori);
+		$this->init_pagination(base_url('home/kategori/'.$kategori), $rows);
+		$data['konten'] = $this->M_activity->get_konten_by_kategori($kategori, $this->data_per_page, $this->uri->segment(4));
 		$this->template->load('layout/fruitkha/template', 'artikel', $kategori.' | '.$data['konfig']['judul_website'], $data);
 	}
 	public function cari(){
@@ -67,7 +73,8 @@ class Home extends CI_Controller {
 	}
 	public function galeri(){
 		$data = $this->get_basic_data();
-		$this->init_pagination(base_url('home/galeri'), 'galeri');
+		$rows = $this->M_activity->cek_rows('galeri');
+		$this->init_pagination(base_url('home/galeri'), $rows);
 		$data['galeri'] = $this->M_activity->get_galeri($this->data_per_page, $this->uri->segment(3));
 		$this->template->load('layout/fruitkha/template', 'galeri', 'Galeri | '.$data['konfig']['judul_website'], $data);
 	}

@@ -32,8 +32,8 @@
 				<div class="footer-box get-in-touch">
 					<h2 class="widget-title">Get in Touch</h2>
 					<ul>
-						<li><i class="fab fa-location"></i> <?= $konfig['alamat'] ?></li>
-						<li><i class="fab fa-email"></i> <?= $konfig['email'] ?></li>
+						<li><i class="fa fa-map-marker"></i> <?= $konfig['alamat'] ?></li>
+						<li><i class="fa fa-envelope"></i> <?= $konfig['email'] ?></li>
 						<li><i class="fab fa-whatsapp"></i> <?= $konfig['no_wa'] ?></li>
 					</ul>
 				</div>
@@ -48,9 +48,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-12">
-				<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.<br>
-					Distributed By - <a href="https://themewagon.com/">Themewagon</a>
-				</p>
+				<p>Copyrights &copy; 2023 - <a href="https://ahmad0126.github.io/">Ahmad Zaid</a>,  All Rights Reserved.</p>
 			</div>
 			<div class="col-lg-6 text-right col-md-12">
 				<div class="social-icons">

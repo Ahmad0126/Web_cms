@@ -6,7 +6,6 @@
                 <div class="breadcrumb-text">
                     <p>Get 24/7 Support</p>
                     <h1>Contact us</h1>
-                    <?= $this->session->flashdata('alert') ?>
                 </div>
             </div>
         </div>
@@ -55,3 +54,8 @@
     </div>
 </div>
 <!-- end contact form -->
+<div class="modal fade" id="alertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<?= $this->session->flashdata('alert'); ?>
+	</div>
+</div>

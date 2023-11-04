@@ -199,7 +199,7 @@ class M_activity extends CI_Model{
     }
     //Delete
     public function delete($id){
-        $konten = $this->db->get_where($this->_table, array('id_kategori' => $id))->result();
+        $konten = $this->db->get_where($this->table1, array('id_kategori' => $id))->result();
         foreach($konten as $fer){
             $this->delete_konten($fer->id_konten);
         }
@@ -277,6 +277,18 @@ class M_activity extends CI_Model{
     }
     public function cek_rows($tabel){
         return $this->db->get($tabel)->num_rows();
+    }
+    public function cek_rows_by_kategori($kategori){
+        $this->db->from($this->table1);
+        $this->db->join($this->_table, $this->_table.'.id_kategori = '.$this->table1.'.id_kategori');
+        $this->db->where('nama_kategori', $kategori);
+        return $this->db->get()->num_rows();
+    }
+    public function cek_rows_by_keyword($keyword){
+        $this->db->from($this->table1);
+        $this->db->join($this->_table, $this->_table.'.id_kategori = '.$this->table1.'.id_kategori');
+        $this->db->like($this->input->get('berdasarkan'), $keyword);
+        return $this->db->get()->num_rows();
     }
     //Create
     private function insert_konten($data){

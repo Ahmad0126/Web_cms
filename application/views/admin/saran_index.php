@@ -1,6 +1,3 @@
-<div class="container-fluid pt-4 px-4">
-	<?= $this->session->flashdata('alert'); ?>
-</div>
 <!-- Recent Sales Start -->
 <div class="container-fluid pt-4 px-4">
 	<div class="bg-light rounded p-4">
@@ -60,5 +57,10 @@
 				<button class="btn btn-primary" type="button" data-dismiss="modal">Tutup</button>
 			</div>
 		</div>
+	</div>
+</div>
+<div class="modal fade" id="alertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<?= $this->session->flashdata('alert'); ?>
 	</div>
 </div>
