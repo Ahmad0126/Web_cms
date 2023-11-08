@@ -6,7 +6,7 @@
 			<a href="<?= base_url('admin/user/tambah') ?>" class="btn btn-primary">Tambah</a>
 		</div>
 		<div class="table-responsive">
-			<table class="table text-start align-middle table-hover mb-0">
+			<table id="tabel" class="table text-start align-middle table-hover mb-0">
 				<thead>
 					<tr class="text-dark">
 						<th scope="col">No</th>
@@ -31,7 +31,7 @@
 						<td><?= $fer->level ?></td>
 						<td>
 							<?php $last_login = explode(" ", $fer->last_login); ?>
-							<a data-toggle="tooltip" data-placement="top" data-title="<?= $this->template->translate_bulan($last_login[0])." ".$last_login[1] ?>">
+							<a data-toggle="tooltip" data-placement="top" data-title="<?= $this->template->translate_bulan($last_login[0])." Pukul ".substr($last_login[1], 0, 5)." WIB" ?>">
 								<?= $this->template->translate_waktu($fer->last_login, $now) ?>
 							</a>
 						</td>

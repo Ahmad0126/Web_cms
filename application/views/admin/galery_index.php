@@ -11,7 +11,7 @@
 			<button data-toggle="modal" type="button" data-target="#tambahModal" class="btn btn-primary">Tambah</button>
 		</div>
 		<div class="table-responsive">
-			<table class="table text-start table-hover mb-0">
+			<table id="tabel" class="table text-start table-hover mb-0">
 				<thead>
 					<tr class="text-dark table-primary">
 						<th class="text-start" scope="col">No</th>
@@ -78,7 +78,7 @@
 	</div>
 </div>
 <div class="modal fade" id="fotomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 1024px;" role="document">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 1024px;width: fit-content;" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel"></h5>
@@ -86,7 +86,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<div class="modal-body text-center">
+			<div class="modal-body p-0 text-center">
 				<img class="img-fluid" id="foto" src="" alt="foto">
 			</div>
 			<div class="modal-footer">

@@ -6,7 +6,7 @@
 			<a href="<?= base_url('admin/saran/hapus_saran') ?>" onclick="return confirm('Yakin ingin menghapus semua saran?')" class="btn btn-danger"><i class="fa fa-trash"></i> kosongkan</a>
 		</div>
 		<div class="table-responsive">
-			<table class="table text-start table-hover mb-0">
+			<table id="tabel" class="table text-start table-hover mb-0">
 				<thead>
 					<tr class="text-dark table-primary">
 						<th class="text-start" scope="col">No</th>
@@ -22,7 +22,7 @@
 					foreach($saran as $fer): 
 					?>
 					<tr>
-						<td class="text-start"><?= $no ?></td>
+						<td class="text-start"><?= $no++ ?></td>
 						<td class="text-center"><?= $fer->nama ?></td>
 						<td class="text-center"><?= $fer->email ?></td>
 						<td class="text-center"><?= $this->template->translate_bulan($fer->tanggal) ?></td>

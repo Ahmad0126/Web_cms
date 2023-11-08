@@ -2,6 +2,12 @@
 <script src="<?= base_url('assets/argon/') ?>assets/js/plugins/jquery/dist/jquery.min.js"></script>
 <script src="<?= base_url('assets/argon/') ?>assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Optional JS -->
+<script src="<?= base_url('assets/argon/') ?>assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+	$('#tabel').dataTable({
+		dom: 'ltrip'
+	});
+</script>
 
 <!--   Argon JS   -->
 <script src="<?= base_url('assets/argon/') ?>assets/js/argon-dashboard.min.js?v=1.1.2"></script>
@@ -11,7 +17,6 @@
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "argon-dashboard-free"
     });
-    $('.notifikasi').delay('slow').slideDown('slow').delay(4000).slideUp(600);
 	<?php if($this->session->flashdata('alert') != null){ ?>
     $('#alertmodal').modal("show");
 	<?php } ?>

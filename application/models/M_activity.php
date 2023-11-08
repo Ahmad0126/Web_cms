@@ -371,7 +371,7 @@ class M_activity extends CI_Model{
     //Bagian saran
     //Read
     public function get_saran(){
-        $this->db->order_by('tanggal', 'ASC');
+        $this->db->order_by('tanggal', 'DESC');
         return $this->db->get($this->table4)->result();
     }
     public function get_saran_by_id($id){

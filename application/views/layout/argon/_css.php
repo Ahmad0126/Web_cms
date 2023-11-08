@@ -7,3 +7,4 @@
 <link href="<?= base_url('assets/argon/') ?>assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
 <!-- CSS Files -->
 <link href="<?= base_url('assets/argon/') ?>assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
+<link href="<?= base_url('assets/argon/') ?>assets/js/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" />
