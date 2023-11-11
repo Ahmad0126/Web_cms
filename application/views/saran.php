@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
-                    <p>Get 24/7 Support</p>
+                    <p>Get the best Support</p>
                     <h1>Contact us</h1>
                 </div>
             </div>
@@ -37,12 +37,8 @@
             <div class="col-lg-4">
                 <div class="contact-form-wrap">
                     <div class="contact-form-box">
-                        <h4><i class="fas fa-map"></i> Shop Address</h4>
+                        <h4><i class="fas fa-map"></i> Alamat</h4>
                         <p><?= $konfig['alamat'] ?></p>
-                    </div>
-                    <div class="contact-form-box">
-                        <h4><i class="far fa-clock"></i> Shop Hours</h4>
-                        <p>MON - FRIDAY: 8 to 9 PM <br> SAT - SUN: 10 to 8 PM </p>
                     </div>
                     <div class="contact-form-box">
                         <h4><i class="fas fa-address-book"></i> Contact</h4>

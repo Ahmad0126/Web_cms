@@ -8,8 +8,8 @@
                 <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
                     <div class="hero-text">
                         <div class="hero-text-tablecell">
-                            <p class="subtitle">Fresh & Organic</p>
-                            <h1>Delicious Seasonal Fruits</h1>
+                            <p class="subtitle">Join with us</p>
+                            <h1>Web Blogger iseng isengan</h1>
                             <div class="hero-btns">
                                 <a href="<?= base_url('home/galeri') ?>" class="boxed-btn">Galeri Foto</a>
                                 <a href="<?= base_url('home/saran') ?>" class="bordered-btn">Contact Us</a>

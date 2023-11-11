@@ -48,7 +48,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-12">
-				<p>Copyrights &copy; 2023 - <a href="https://ahmad0126.github.io/">Ahmad Zaid</a>,  All Rights Reserved.</p>
+				<p>Copyrights &copy; 2023 - <a href="https://ahmad0126.github.io/" target="_blank">Ahmad Zaid</a>,  All Rights Reserved.</p>
 			</div>
 			<div class="col-lg-6 text-right col-md-12">
 				<div class="social-icons">

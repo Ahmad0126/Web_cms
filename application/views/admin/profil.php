@@ -56,13 +56,13 @@
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="form-group">
-										<label class="form-control-label" for="input-first-name">Nama</label>
+										<label class="form-control-label" for="input-first-name">Nama <i class="fa fa-edit"></i></label>
 										<input type="text" name="nama" id="input-first-name" class="form-control form-control-alternative" placeholder="Nama" value="<?= $user['nama'] ?>">
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
-										<label class="form-control-label" for="input-last-name">Foto Profil</label>
+										<label class="form-control-label" for="input-last-name">Foto Profil <i class="fa fa-edit"></i></label>
 										<input type="file" name="profil" accept="image/jpeg" id="input-last-name" class="form-control form-control-alternative" placeholder="Foto Profil">
 									</div>
 									<button type="submit" class="btn btn-primary m-2 float-right">Simpan</button>

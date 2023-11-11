@@ -66,11 +66,12 @@ class Home extends CI_Controller {
 		$data['konten'] = $this->M_activity->get_konten_by_kategori($kategori, $this->data_per_page, $this->uri->segment(4));
 		$this->template->load('layout/fruitkha/template', 'artikel', $kategori.' | '.$data['konfig']['judul_website'], $data);
 	}
-	public function cari(){
+	public function cari($start = null){
 		$keyword = $this->input->get('key');
+		$rows = $this->M_activity->cek_rows_by_keyword($keyword);
 		$data = $this->get_basic_data();
-		$this->init_pagination(base_url('home/artikel'), 'konten');
-		$data['konten'] = $this->M_activity->get_konten_by_keyword($keyword, $this->data_per_page, $this->uri->segment(3));
+		$this->init_pagination(base_url('home/cari'), $rows);
+		$data['konten'] = $this->M_activity->get_konten_by_keyword($keyword, $this->data_per_page, $start);
 		$this->template->load('layout/fruitkha/template', 'artikel', 'cari: '.$keyword.' | '.$data['konfig']['judul_website'], $data);
 	}
 	public function galeri(){

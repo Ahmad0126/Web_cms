@@ -2,12 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends CI_Controller {
+    public function __construct(){
+        parent::__construct();
+        $this->load->model('M_user');
+    }
 	public function index(){
-        $this->template->load('layout/argon/template1', 'login', 'Login');
+        $data['konfig'] = $this->M_user->get_konfig();
+        $this->template->load('layout/argon/template1', 'login', 'Login', $data);
 	}
 
 	public function log_in(){
-		$this->load->model('M_user');
         $user = $this->input->post('username');
         $pass = $this->input->post('password');
 		$cek = $this->M_user->getwu_user($user);
@@ -38,12 +42,10 @@ class Auth extends CI_Controller {
         redirect(base_url('auth'));
     }
 	public function err(){
-        $this->load->model('M_user');
         $data['konfig'] = $this->M_user->get_konfig();
         $this->load->view('errors/html/err_404', $data);
 	}
 	public function err_403(){
-        $this->load->model('M_user');
         $data['konfig'] = $this->M_user->get_konfig();
         $this->load->view('errors/html/error_403', $data);
 	}
