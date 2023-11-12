@@ -2,6 +2,8 @@
 <script src="<?= base_url('assets/argon/') ?>assets/js/plugins/jquery/dist/jquery.min.js"></script>
 <script src="<?= base_url('assets/argon/') ?>assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Optional JS -->
+<script src="<?= base_url('assets/argon/') ?>assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+<script src="<?= base_url('assets/argon/') ?>assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
 <script src="<?= base_url('assets/argon/') ?>assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
 <script>
 	$('#tabel').dataTable({
