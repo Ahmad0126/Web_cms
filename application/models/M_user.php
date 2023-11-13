@@ -142,4 +142,12 @@ class M_user extends CI_Model{
         $this->db->where('id_konfigurasi',1);
         return $this->db->update($this->table1, $data);
     }
+
+    //konten
+    public function get_jml_konten_per_user($username){
+        $this->db->select('*');
+        $this->db->from('konten');
+        $this->db->where('username', $username);
+        return $this->db->get()->num_rows();
+    }
 }

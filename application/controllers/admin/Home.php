@@ -9,10 +9,19 @@ class Home extends CI_Controller {
         $this->load->library('notif');
 	}
 	public function index(){
-        $this->template->load('layout/argon/template', 'admin/dashboard', 'Dashboard | Admin');
+        $this->load->model('M_activity');
+        $data = [
+            'jml_konten' => $this->M_activity->cek_rows('konten'),
+            'jml_saran' => $this->M_activity->cek_rows('saran'),
+            'jml_user' => $this->M_activity->cek_rows('user'),
+            'jml_foto' => $this->M_activity->cek_rows('galeri'),
+            'konten_per_kategori' => $this->M_activity->get_jml_konten_per_kategori()
+        ];
+        $this->template->load('layout/argon/template', 'admin/dashboard', 'Dashboard | Admin', $data);
 	}
 	public function profil(){
         $data['user'] = $this->M_user->get_user_by_id($this->session->userdata('id'));
+        $data['jml_konten'] = $this->M_user->get_jml_konten_per_user($this->session->userdata('username'));
         $this->template->load('layout/argon/template', 'admin/profil', 'Profil', $data);
     }
 

@@ -15,7 +15,21 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-xl-12 col-lg-6 pt-4 pt-md-4 text-center">
+					<div class="col-xl-12 col-lg-6 text-center">
+						<div class="card-profile-stats d-flex justify-content-center">
+							<div>
+								<span class="heading">0</span>
+								<span class="description">Login</span>
+							</div>
+							<div>
+								<span class="heading"><?= $jml_konten ?></span>
+								<span class="description">Konten</span>
+							</div>
+							<div>
+								<span class="heading">0</span>
+								<span class="description">Logout</span>
+							</div>
+						</div>
 						<h3><?= $user['nama'] ?></h3>
 						<div class="h5 font-weight-300"><?= $user['username'] ?></div>
 						<div class="h5 mt-4 mb-3"><?= $user['level'] ?></div>
@@ -76,8 +90,19 @@
 	</div>
 </div>
 <div class="modal fade" id="profilmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<img class="img-fluid" src="<?= $user['profil'] == null ? base_url('assets/argon/assets/img/theme/undraw_profile.svg') : base_url('assets/upload/profil/').$user['profil'] ?>">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<?php if($user['profil'] != null){ ?>
+		<img class="img-fluid" alt="Profil" src="<?= base_url('assets/upload/profil/').$user['profil'] ?>">
+		<?php }else{ ?>
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Tidak ada profil</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</div>
+		<?php } ?>
 	</div>
 </div>
 <div class="modal fade" id="passwordmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

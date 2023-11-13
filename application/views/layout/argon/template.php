@@ -23,7 +23,7 @@
 		<!-- Navbar -->
 		<?php require_once('_navbar.php') ?>
 		<!-- End Navbar -->
-		<div class="container-fluid pb-8 pt-4 pt-md-7">
+		<div class="container-fluid pt-4 pt-md-7">
 			<div class="row">
 				<?= $contents ?>
 			</div>

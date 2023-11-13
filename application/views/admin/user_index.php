@@ -30,10 +30,11 @@
 						<td><?= $fer->nama ?></td>
 						<td><?= $fer->level ?></td>
 						<td>
-							<?php $last_login = explode(" ", $fer->last_login); ?>
+							<?php if($fer->last_login != null){ $last_login = explode(" ", $fer->last_login); ?>
 							<a data-toggle="tooltip" data-placement="top" data-title="<?= $this->template->translate_bulan($last_login[0])." Pukul ".substr($last_login[1], 0, 5)." WIB" ?>">
 								<?= $this->template->translate_waktu($fer->last_login, $now) ?>
 							</a>
+							<?php }else{ echo "Belum pernah Login"; } ?>
 						</td>
 						<td>
 							<a class="btn btn-sm btn-primary" href="<?= base_url('admin/user/edit/').$fer->id_user ?>"><i class="fa fa-edit"></i> Edit</a>

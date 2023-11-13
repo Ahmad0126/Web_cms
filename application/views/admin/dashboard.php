@@ -1,5 +1,5 @@
 <div class="container-fluid pt-4 px-4">
-	<h1>Selamat Datang <?= $this->session->userdata('nama'); ?></h1>
+	<h1>Selamat Datang, <?= $this->session->userdata('nama'); ?></h1>
 	<div class="row pt-2">
 		<div class="col-xl-3 col-lg-6">
 			<div class="card card-stats mb-4 mb-xl-0">
@@ -7,7 +7,7 @@
 					<div class="row">
 						<div class="col">
 							<h5 class="card-title text-uppercase text-muted mb-0">Konten</h5>
-							<span class="h2 font-weight-bold mb-0">350,897</span>
+							<span class="h2 font-weight-bold mb-0"><?= $jml_konten ?> <span class="text-sm">artikel</span></span>
 						</div>
 						<div class="col-auto">
 							<div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -24,7 +24,7 @@
 					<div class="row">
 						<div class="col">
 							<h5 class="card-title text-uppercase text-muted mb-0">Galeri</h5>
-							<span class="h2 font-weight-bold mb-0">2,356</span>
+							<span class="h2 font-weight-bold mb-0"><?= $jml_foto ?> <span class="text-sm">foto</span></span>
 						</div>
 						<div class="col-auto">
 							<div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -41,7 +41,7 @@
 					<div class="row">
 						<div class="col">
 							<h5 class="card-title text-uppercase text-muted mb-0">User</h5>
-							<span class="h2 font-weight-bold mb-0">924</span>
+							<span class="h2 font-weight-bold mb-0"><?= $jml_user ?> <span class="text-sm">orang</span></span>
 						</div>
 						<div class="col-auto">
 							<div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -58,7 +58,7 @@
 					<div class="row">
 						<div class="col">
 							<h5 class="card-title text-uppercase text-muted mb-0">Saran</h5>
-							<span class="h2 font-weight-bold mb-0">49,65%</span>
+							<span class="h2 font-weight-bold mb-0"><?= $jml_saran ?> <span class="text-sm">pengirim</span></span>
 						</div>
 						<div class="col-auto">
 							<div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -76,7 +76,7 @@
 				<div class="card-header bg-transparent">
 					<div class="row align-items-center">
 						<div class="col">
-							<h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
+							<h6 class="text-uppercase text-muted ls-1 mb-1">Laporan bulanan</h6>
 							<h2 class="mb-0 text-light">Konten yang diupload</h2>
 						</div>
 					</div>
@@ -106,7 +106,7 @@
 							<h3 class="mb-0">Kategori</h3>
 						</div>
 						<div class="col text-right">
-							<a href="#!" class="btn btn-sm btn-primary">Selengkapnya</a>
+							<a href="<?= base_url('admin/kategori') ?>" class="btn btn-sm btn-primary">Selengkapnya</a>
 						</div>
 					</div>
 				</div>
@@ -120,46 +120,16 @@
 							</tr>
 						</thead>
 						<tbody>
+							<?php foreach($konten_per_kategori as $fer){ ?>
 							<tr>
 								<th scope="row">
-									/argon/
+									<?= $fer['nama_kategori'] ?>
 								</th>
 								<td style="text-align: end;">
-									4,569
+									<?= $fer['jumlah'] ?>
 								</td>
 							</tr>
-							<tr>
-								<th scope="row">
-									/argon/index.html
-								</th>
-								<td style="text-align: end;">
-									3,985
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">
-									/argon/charts.html
-								</th>
-								<td style="text-align: end;">
-									3,513
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">
-									/argon/tables.html
-								</th>
-								<td style="text-align: end;">
-									2,050
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">
-									/argon/profile.html
-								</th>
-								<td style="text-align: end;">
-									1,795
-								</td>
-							</tr>
+							<?php } ?>
 						</tbody>
 					</table>
 				</div>

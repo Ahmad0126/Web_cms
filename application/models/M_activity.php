@@ -272,6 +272,18 @@ class M_activity extends CI_Model{
     public function get_konten_by_id($id){
         return $this->db->get_where($this->table1, array('id_konten' => $id))->row_array();
     }
+    public function get_jml_konten_per_kategori(){
+        $data = array();
+        $no = 0;
+        $kategori = $this->get_kategori();
+        foreach($kategori as $fer){
+            $jml = $this->get_konten_by_kategori($fer->nama_kategori, null);
+            $data += [
+                $no++ => ['nama_kategori' => $fer->nama_kategori, 'jumlah' => count($jml)]
+            ];
+        }
+        return $data;
+    }
     public function cek_judul($judul){
         return $this->db->where('judul', $judul)->count_all_results($this->table1);
     }
