@@ -21,6 +21,10 @@ class User extends CI_Controller {
 		$data['user'] = $this->M_user->get_user_by_id($id);
 		$this->template->load('layout/argon/template', 'admin/form_user', 'Edit User', $data);
 	}
+	public function log(){
+		$data['log'] = $this->M_user->get_user_logs();
+		$this->template->load('layout/argon/template', 'admin/log_index', 'Aktivitas User', $data);
+	}
 
 	//backend
 	public function hapus_user($id){

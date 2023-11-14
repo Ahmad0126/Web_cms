@@ -18,7 +18,7 @@
 					<div class="col-xl-12 col-lg-6 text-center">
 						<div class="card-profile-stats d-flex justify-content-center">
 							<div>
-								<span class="heading">0</span>
+								<span class="heading"><?= $jml_login ?></span>
 								<span class="description">Login</span>
 							</div>
 							<div>
@@ -26,7 +26,7 @@
 								<span class="description">Konten</span>
 							</div>
 							<div>
-								<span class="heading">0</span>
+								<span class="heading"><?= $jml_logout ?></span>
 								<span class="description">Logout</span>
 							</div>
 						</div>

@@ -20,8 +20,12 @@ class Home extends CI_Controller {
         $this->template->load('layout/argon/template', 'admin/dashboard', 'Dashboard | Admin', $data);
 	}
 	public function profil(){
-        $data['user'] = $this->M_user->get_user_by_id($this->session->userdata('id'));
-        $data['jml_konten'] = $this->M_user->get_jml_konten_per_user($this->session->userdata('username'));
+        $data = [
+            'user' => $this->M_user->get_user_by_id($this->session->userdata('id')),
+            'jml_konten' => $this->M_user->get_jml_konten_per_user($this->session->userdata('username')),
+            'jml_login' => $this->M_user->count_user_login(),
+            'jml_logout' => $this->M_user->count_user_logout()
+        ];
         $this->template->load('layout/argon/template', 'admin/profil', 'Profil', $data);
     }
 

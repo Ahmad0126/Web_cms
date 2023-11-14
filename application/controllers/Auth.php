@@ -22,7 +22,7 @@ class Auth extends CI_Controller {
                 $this->session->set_userdata('nama', $cek['nama']);
                 $this->session->set_userdata('username', $cek['username']);
                 $this->session->set_userdata('profil', $cek['profil']);
-                $this->M_user->set_login($user);
+                $this->M_user->create_log('Log in');
                 redirect(base_url('admin/home'));
             }else{
                 $this->session->set_flashdata('username_val', $user);
@@ -36,6 +36,7 @@ class Auth extends CI_Controller {
         }
 	}
 	public function log_out(){
+        $this->M_user->create_log('Log out');
         $user = array('level', 'id', 'nama');
         $this->session->unset_userdata($user);
         $this->session->sess_destroy();

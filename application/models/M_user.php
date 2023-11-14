@@ -5,6 +5,7 @@ class M_user extends CI_Model{
     //Konfigurasi
     protected $_table = 'user';
     protected $table1 = 'konfigurasi';
+    protected $table2 = 'log';
     protected $rules1 = [
         [
             'field' => 'username',
@@ -141,6 +142,42 @@ class M_user extends CI_Model{
         ];
         $this->db->where('id_konfigurasi',1);
         return $this->db->update($this->table1, $data);
+    }
+    
+    //Bagian Logs
+    //Read
+    public function get_user_logs(){
+        $this->db->select('*');
+        $this->db->from($this->table2);
+        $this->db->join($this->_table, 'user.id_user = log.id_user');
+        $this->db->order_by('waktu', 'DESC');
+        return $this->db->get()->result();
+    }
+    public function count_user_login(){
+        $where = [
+            'id_user' => $this->session->userdata('id'),
+            'aktivitas' => 'Log in'
+        ];
+        $this->db->where($where);
+        return $this->db->get($this->table2)->num_rows();
+    }
+    public function count_user_logout(){
+        $where = [
+            'id_user' => $this->session->userdata('id'),
+            'aktivitas' => 'Log out'
+        ];
+        $this->db->where($where);
+        return $this->db->get($this->table2)->num_rows();
+    }
+    //Create
+    public function create_log($aktivitas){
+        date_default_timezone_set('Asia/bangkok');
+        $data = [
+            'waktu' => date('Y-m-d H:i:s'),
+            'id_user' => $this->session->userdata('id'),
+            'aktivitas' => $aktivitas
+        ];
+        return $this->db->insert($this->table2, $data);
     }
 
     //konten

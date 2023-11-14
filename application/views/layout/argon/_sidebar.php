@@ -91,8 +91,13 @@
 				</li>
 				<?php if($this->session->userdata('level')=='admin'){ ?>
 				<li class="nav-item">
-					<a class="nav-link <?= $menu == 'user' ? 'active' : '' ?>" href="<?= base_url('admin/user') ?>">
+					<a class="nav-link <?= $menu == 'user' && $this->uri->segment(3) == null ? 'active' : '' ?>" href="<?= base_url('admin/user') ?>">
 						<i class="ni ni-single-02 text-yellow"></i> User
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?= $this->uri->segment(3) == 'log' ? 'active' : '' ?>" href="<?= base_url('admin/user/log') ?>">
+						<i class="fa fa-chart-bar text-blue"></i> Aktivitas
 					</a>
 				</li>
 				<li class="nav-item">
