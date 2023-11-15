@@ -7,7 +7,7 @@
 					<div class="row">
 						<div class="col">
 							<h5 class="card-title text-uppercase text-muted mb-0">Konten</h5>
-							<span class="h2 font-weight-bold mb-0"><?= $jml_konten ?> <span class="text-sm">artikel</span></span>
+							<span class="h2 font-weight-bold mb-0"><?= $jml_konten ?> <span class="h5">artikel</span></span>
 						</div>
 						<div class="col-auto">
 							<div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -24,7 +24,7 @@
 					<div class="row">
 						<div class="col">
 							<h5 class="card-title text-uppercase text-muted mb-0">Galeri</h5>
-							<span class="h2 font-weight-bold mb-0"><?= $jml_foto ?> <span class="text-sm">foto</span></span>
+							<span class="h2 font-weight-bold mb-0"><?= $jml_foto ?> <span class="h5">foto</span></span>
 						</div>
 						<div class="col-auto">
 							<div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -41,7 +41,7 @@
 					<div class="row">
 						<div class="col">
 							<h5 class="card-title text-uppercase text-muted mb-0">User</h5>
-							<span class="h2 font-weight-bold mb-0"><?= $jml_user ?> <span class="text-sm">orang</span></span>
+							<span class="h2 font-weight-bold mb-0"><?= $jml_user ?> <span class="h5">orang</span></span>
 						</div>
 						<div class="col-auto">
 							<div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -58,7 +58,7 @@
 					<div class="row">
 						<div class="col">
 							<h5 class="card-title text-uppercase text-muted mb-0">Saran</h5>
-							<span class="h2 font-weight-bold mb-0"><?= $jml_saran ?> <span class="text-sm">pengirim</span></span>
+							<span class="h2 font-weight-bold mb-0"><?= $jml_saran ?> <span class="h5">pengirim</span></span>
 						</div>
 						<div class="col-auto">
 							<div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -77,7 +77,18 @@
 					<div class="row align-items-center">
 						<div class="col">
 							<h6 class="text-uppercase text-muted ls-1 mb-1">Laporan bulanan</h6>
-							<h2 class="mb-0 text-light">Konten yang diupload</h2>
+							<div class="d-flex justify-content-between">
+								<h2 class="mb-0 text-light">Konten yang diupload</h2>
+								<h2 class="mb-0 text-light d-flex"> Tahun 
+									<form class="ml-1" action="<?= base_url('admin/home/set_tahun') ?>" method="post">
+										<select name="tahun" id="" onchange="this.form.submit()">
+											<?php for($i = 0; $i < count($tahun); $i++){ ?>
+											<option value="<?= $tahun[$i] ?>" <?= $tahun[$i] == $this->session->flashdata('tahun') ? 'selected' : '' ?>><?= $tahun[$i] ?></option>
+											<?php } ?>
+										</select>
+									</form>
+								</h2>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -92,8 +103,7 @@
 								<div class=""></div>
 							</div>
 						</div>
-						<canvas id="chart-orders" class="chart-canvas chartjs-render-monitor"
-							style="display: block; width: 765px; height: 350px;" width="765" height="350"></canvas>
+						<canvas id="report" class="chart-canvas chartjs-render-monitor" style="display: block; width: 765px; height: 350px;" width="765" height="350"></canvas>
 					</div>
 				</div>
 			</div>
@@ -137,3 +147,32 @@
 		</div>
 	</div>
 </div>
+<script src="<?= base_url('assets/argon/') ?>assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+<script src="<?= base_url('assets/argon/') ?>assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
+<script>
+	(async function() {
+		const data = [
+			<?php foreach($konten_tahunan as $fer){ ?>
+			{ bulan: '<?= $fer['bulan'] ?>', count: '<?= $fer['jml'] ?>' },
+			<?php } ?>
+		];
+		console.log(data);
+
+		new Chart(
+			document.getElementById('report'),
+			{
+				type: 'bar',
+				data: {
+					labels: data.map(row => row.bulan),
+					datasets: [
+					{
+						label: 'Konten yang diupload',
+						data: data.map(row => row.count),
+						backgroundColor: 'rgba(235, 158, 52, 1)',
+					}
+					]
+				},
+			}
+		);
+	})();
+</script>

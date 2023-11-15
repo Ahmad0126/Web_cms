@@ -284,6 +284,39 @@ class M_activity extends CI_Model{
         }
         return $data;
     }
+    public function get_jml_konten_by_bulan($bulan){
+        $this->db->like('tanggal', $bulan);
+        return $this->db->get($this->table1)->num_rows();
+    }
+    public function get_report_konten($tahun){
+        $data = array();
+        $no = 0;
+        $bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        for($i = 0; $i < count($bulan); $i++){
+            $data += [
+                $i => [
+                    'bulan' => $bulan[$i],
+                    'jml' => $this->get_jml_konten_by_bulan($tahun.'-'.($i >= 9 ? $i+1 : '0'.$i+1))
+                ]
+            ];
+        }
+        return $data;
+    }
+    public function cek_upload_range(){
+        $data = array();
+        $this->db->select('tanggal');
+        $this->db->order_by('tanggal', 'ASC');
+        $awal = $this->db->get($this->table1)->row_array();
+        $this->db->select('tanggal');
+        $this->db->order_by('tanggal', 'ASC');
+        $akhir = $this->db->get($this->table1)->last_row('array');
+        $first = intval(substr($awal['tanggal'], 0, 4));
+        $last = intval(substr($akhir['tanggal'], 0, 4));
+        for($i = $first; $i <= $last; $i++){
+            array_push($data, $i);
+        }
+        return $data;
+    }
     public function cek_judul($judul){
         return $this->db->where('judul', $judul)->count_all_results($this->table1);
     }

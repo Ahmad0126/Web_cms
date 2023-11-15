@@ -118,16 +118,16 @@
 			<div class="modal-body">
 				<div class="form-group mb-3">
 					<label for="floatingInput">Password Lama</label>
-					<input type="password" name="pl" class="form-control <?= $this->session->flashdata('password') != null?'is-invalid':'' ?>" value="<?= $this->session->flashdata('pl_val') != null? $this->session->flashdata('pl_val') : '' ?>" placeholder="Masukkan Password Lama" id="floatingInput">
+					<input required type="password" name="pl" class="form-control <?= $this->session->flashdata('password') != null?'is-invalid':'' ?>" value="<?= $this->session->flashdata('pl_val') != null? $this->session->flashdata('pl_val') : '' ?>" placeholder="Masukkan Password Lama" id="floatingInput">
 					<div class="invalid-feedback"><?= $this->session->flashdata('password') ?></div>
 				</div>
 				<div class="form-group mb-3">
 					<label for="f2">Password Baru</label>
-					<input type="password" name="password" class="form-control" value="<?= $this->session->flashdata('pp_val') != null? $this->session->flashdata('pp_val') : '' ?>" placeholder="Masukkan Password Baru" id="f2">
+					<input required type="password" name="password" class="form-control" value="<?= $this->session->flashdata('pp_val') != null? $this->session->flashdata('pp_val') : '' ?>" placeholder="Masukkan Password Baru" id="f2">
 				</div>
 				<div class="form-group mb-3">
 					<label for="floatingPassword">Konfirmasi Password Baru</label>
-					<input type="password" name="pk" class="form-control <?= $this->session->flashdata('konf') != null?'is-invalid':'' ?>" value="<?= $this->session->flashdata('pk_val') != null? $this->session->flashdata('pk_val') : '' ?>" placeholder="Masukkan Kembali Password Baru" id="floatingPassword">
+					<input required type="password" name="pk" class="form-control <?= $this->session->flashdata('konf') != null?'is-invalid':'' ?>" value="<?= $this->session->flashdata('pk_val') != null? $this->session->flashdata('pk_val') : '' ?>" placeholder="Masukkan Kembali Password Baru" id="floatingPassword">
 					<div class="invalid-feedback"><?= $this->session->flashdata('konf') ?></div>
 				</div>
 			</div>

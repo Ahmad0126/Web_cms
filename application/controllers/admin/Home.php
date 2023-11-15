@@ -10,12 +10,15 @@ class Home extends CI_Controller {
 	}
 	public function index(){
         $this->load->model('M_activity');
+        if($this->session->flashdata('tahun') == null){ $this->session->set_flashdata('tahun', date('Y')); }
         $data = [
             'jml_konten' => $this->M_activity->cek_rows('konten'),
             'jml_saran' => $this->M_activity->cek_rows('saran'),
             'jml_user' => $this->M_activity->cek_rows('user'),
             'jml_foto' => $this->M_activity->cek_rows('galeri'),
-            'konten_per_kategori' => $this->M_activity->get_jml_konten_per_kategori()
+            'konten_per_kategori' => $this->M_activity->get_jml_konten_per_kategori(),
+            'konten_tahunan' => $this->M_activity->get_report_konten($this->session->flashdata('tahun')),
+            'tahun' => $this->M_activity->cek_upload_range()
         ];
         $this->template->load('layout/argon/template', 'admin/dashboard', 'Dashboard | Admin', $data);
 	}
@@ -29,6 +32,11 @@ class Home extends CI_Controller {
         $this->template->load('layout/argon/template', 'admin/profil', 'Profil', $data);
     }
 
+    public function set_tahun(){
+        $tahun = $this->input->post('tahun');
+        $this->session->set_flashdata('tahun', $tahun);
+        redirect(base_url('admin/home'));
+    }
     public function update_user($id){
         $data = array();
         if($_FILES['profil']['name'] != ''){
@@ -36,7 +44,7 @@ class Home extends CI_Controller {
                 $this->session->set_flashdata('alert', $this->notif->set('Ukuran foto terlalu besar!', 'danger'));
                 redirect(base_url('admin/home/profil'));
             }
-            $namafoto = date('YmdHis').'.jpg';
+            $namafoto = $this->session->userdata('username').'.jpg';
             $config['upload_path'] = 'assets/upload/profil';
             $config['max_size'] = 500 * 1024;
             $config['overwrite'] = true;
@@ -47,6 +55,7 @@ class Home extends CI_Controller {
                 $this->session->set_flashdata('alert', $this->notif->set('Foto profil gagal diganti!', 'danger'));
                 redirect(base_url('admin/home/profil'));
             }
+            $this->session->set_userdata('profil', $namafoto);
             $data += array('profil' => $namafoto);
         }
         $data += array('nama' => $this->input->post('nama'));
