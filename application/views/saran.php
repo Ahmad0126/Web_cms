@@ -14,8 +14,14 @@
 <!-- end breadcrumb section -->
 
 <!-- contact form -->
-<div class="contact-from-section mt-150 mb-150">
+<div class="contact-from-section mt-5 mb-150">
     <div class="container">
+        <div class="row mb-5">
+            <div class="col">
+                <h2 class="text-center">About Us</h2>
+                <p class="text-center"><?= nl2br($konfig['profil_website']) ?></p>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
                 <div class="form-title">
@@ -42,7 +48,7 @@
                     </div>
                     <div class="contact-form-box">
                         <h4><i class="fas fa-address-book"></i> Contact</h4>
-                        <p>Phone: +62 <?= $konfig['no_wa'] ?> <br> Email: <?= $konfig['email'] ?></p>
+                        <p>Phone: +62 <?= substr($konfig['no_wa'], 1) ?> <br> Email: <?= $konfig['email'] ?></p>
                     </div>
                 </div>
             </div>

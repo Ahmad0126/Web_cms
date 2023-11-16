@@ -25,6 +25,12 @@
 					<nav class="main-menu">
 						<ul>
 							<li><a href="<?= base_url() ?>">Home</a></li>
+							<li><a href="#">Pages</a>
+								<ul class="sub-menu">
+									<li><a href="<?= base_url('home/saran') ?>">About</a></li>
+									<li><a href="<?= base_url('home/galeri') ?>">Galeri</a></li>
+								</ul>
+							</li>
 							<?php foreach($kategori as $fer){ ?>
 							<li><a href="<?= base_url('home/kategori/').$fer->nama_kategori ?>"><?= $fer->nama_kategori ?></a></li>
 							<?php } ?>

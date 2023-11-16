@@ -1,8 +1,7 @@
 <!-- home page slider -->
 <div class="homepage-slider">
     <!-- single home slider -->
-    <?php foreach($carousel as $fer){ ?>
-    <div class="single-homepage-slider" style="background-image: url(<?= base_url('assets/upload/carousel/').$fer->foto ?>);">
+    <div class="single-homepage-slider" style="background-image: url(<?= base_url('assets/upload/carousel/cms-image.jpg') ?>);">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
@@ -14,6 +13,20 @@
                                 <a href="<?= base_url('home/galeri') ?>" class="boxed-btn">Galeri Foto</a>
                                 <a href="<?= base_url('home/saran') ?>" class="bordered-btn">Contact Us</a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php foreach($carousel as $fer){ ?>
+    <div class="single-homepage-slider" style="background-image: url(<?= base_url('assets/upload/carousel/').$fer->foto ?>);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
+                    <div class="hero-text">
+                        <div class="hero-text-tablecell">
+                            <h1><?= $fer->judul ?></h1>
                         </div>
                     </div>
                 </div>
