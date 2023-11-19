@@ -14,8 +14,8 @@
                             <span class="author"><i class="fas fa-user"></i> <?= $konten->nama ?></span>
                             <span class="date"><i class="fas fa-calendar"></i> <?= $this->template->translate_bulan($konten->tanggal) ?></span>
                         </p>
-                        <h2><?= $konten->judul ?></h2>
-                        <p><?= nl2br($konten->keterangan) ?></p>
+                        <h2 class="mb-4"><?= $konten->judul ?></h2>
+                        <?= $konten->keterangan ?>
                     </div>
                 </div>
             </div>

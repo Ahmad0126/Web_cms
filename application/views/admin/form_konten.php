@@ -18,8 +18,8 @@
                 </select>
             </div>
             <div class="form-group mb-3">
-                <label for="floatingPassword">Isi</label>
-                <textarea name="keterangan" placeholder="Isi Konten" id="keterangan" rows="10" class="form-control" required><?= isset($konten)? $konten['keterangan'] : '' ?></textarea>
+                <label for="konten">Isi</label>
+                <textarea name="keterangan" placeholder="Isi Konten" id="konten" rows="10" class="form-control"><?= isset($konten)? $konten['keterangan'] : '' ?></textarea>
             </div>
             <div class="form-group mb-3">
                 <label for="foto"><?= isset($konten)? 'Ganti foto' : 'Foto' ?></label>
@@ -29,3 +29,14 @@
         </form>
     </div>
 </div>
+<!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/aq37vou6o6fl7r2lfo92721t18z6173r03hevnh6qpu52i0f/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<script>
+  tinymce.init({
+    selector: 'textarea#konten',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+  });
+</script>
