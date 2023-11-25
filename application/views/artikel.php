@@ -19,12 +19,11 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="row">
-                <?php 
-                    if($konten == null){
-                        echo '<div class="col text-center">Belum ada Artikel</div>';
-                    }
+                    <?php 
+                    if($this->uri->segment(2) == 'cari' && $konten == null){ echo '<div class="col text-center">Artikel yang Anda cari tidak ditemukan!</div>'; }
+                    else if($this->uri->segment(2) != 'cari' && $konten == null){ echo '<div class="col text-center">Belum ada Artikel</div>'; }
                     foreach($konten as $fer){ 
-                ?>
+                    ?>
                     <div class="col-md-6">
                         <div class="single-latest-news">
                             <a href="<?= base_url('home/artikel/').$fer->slug ?>">
@@ -36,7 +35,7 @@
                                     <span class="author"><i class="fas fa-user"></i> <?= $fer->nama ?></span>
                                     <span class="date"><i class="fas fa-calendar"></i> <?= $this->template->translate_bulan($fer->tanggal) ?></span>
                                 </p>
-                                <p class="excerpt"><?= strlen($fer->keterangan) > 120 ? substr($fer->keterangan, 0, 120).'...' : $fer->keterangan ?></p>
+                                <div class="excerpt"><?= substr(strip_tags($fer->keterangan), 0, 120) ?><?= strlen(strip_tags($fer->keterangan)) > 120 ? '...' : '' ?></div>
                                 <a href="<?= base_url('home/artikel/').$fer->slug ?>" class="read-more-btn">baca selengkapnya <i class="fas fa-angle-right"></i></a>
                             </div>
                         </div>

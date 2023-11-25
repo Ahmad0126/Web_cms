@@ -250,6 +250,7 @@ class M_activity extends CI_Model{
         $this->db->join($this->table2, $this->table2.'.username = '.$this->table1.'.username');
         $this->db->where('nama_kategori', $kategori);
         $this->db->limit($limit, $start);
+        $this->db->order_by('id_konten', 'DESC');
         return $this->db->get()->result();
     }
     public function get_konten_by_keyword($keyword, $limit, $start){
@@ -258,6 +259,7 @@ class M_activity extends CI_Model{
         $this->db->join($this->table2, $this->table2.'.username = '.$this->table1.'.username');
         $this->db->like($this->input->get('berdasarkan'), $keyword);
         $this->db->limit($limit, $start);
+        $this->db->order_by('id_konten', 'DESC');
         return $this->db->get()->result();
     }
     public function get_sidebar(){

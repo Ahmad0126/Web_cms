@@ -25,24 +25,24 @@
 					<nav class="main-menu">
 						<ul>
 							<li><a href="<?= base_url() ?>">Home</a></li>
-							<li><a href="#">Pages</a>
+							<li><a href="#">Kategori</a>
 								<ul class="sub-menu">
-									<li><a href="<?= base_url('home/saran') ?>">About</a></li>
-									<li><a href="<?= base_url('home/galeri') ?>">Galeri</a></li>
+									<?php foreach($kategori as $fer){ ?>
+									<li><a href="<?= base_url('home/kategori/').$fer->nama_kategori ?>"><?= $fer->nama_kategori ?></a></li>
+									<?php } ?>
 								</ul>
 							</li>
-							<?php foreach($kategori as $fer){ ?>
-							<li><a href="<?= base_url('home/kategori/').$fer->nama_kategori ?>"><?= $fer->nama_kategori ?></a></li>
-							<?php } ?>
+							<li><a href="<?= base_url('home/galeri') ?>">Galeri</a></li>
+							<li><a href="<?= base_url('home/saran') ?>">About</a></li>
 							<li>
 								<div class="header-icons">
 									<a class="shopping-cart" href="<?= base_url('auth') ?>"><i class="fas fa-users"></i></a>
-									<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+									<a class="mobile-hide search-bar-icon"><i class="fas fa-search"></i></a>
 								</div>
 							</li>
 						</ul>
 					</nav>
-					<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+					<a class="mobile-show search-bar-icon"><i class="fas fa-search"></i></a>
 					<div class="mobile-menu"></div>
 					<!-- menu end -->
 				</div>

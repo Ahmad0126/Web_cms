@@ -67,7 +67,7 @@
                             <span class="author"><i class="fas fa-user"></i> <?= $fer->nama ?></span>
                             <span class="date"><i class="fas fa-calendar"></i> <?= $this->template->translate_bulan($fer->tanggal) ?></span>
                         </p>
-                        <p class="excerpt"><?= substr($fer->keterangan, 0, 120) ?><?= strlen($fer->keterangan) > 120 ? '...' : '' ?></p>
+                        <p class="excerpt"><?= substr(strip_tags($fer->keterangan), 0, 120) ?><?= strlen(strip_tags($fer->keterangan)) > 120 ? '...' : '' ?></p>
                         <a href="<?= base_url('home/artikel/').$fer->slug ?>" class="read-more-btn">baca selengkapnya <i class="fas fa-angle-right"></i></a>
                     </div>
                 </div>
