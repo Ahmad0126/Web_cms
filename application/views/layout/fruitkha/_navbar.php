@@ -27,6 +27,7 @@
 							<li><a href="<?= base_url() ?>">Home</a></li>
 							<li><a href="#">Kategori</a>
 								<ul class="sub-menu">
+								<?php if($kategori == null){ echo "<li>Belum ada kategori</li>"; } ?>
 									<?php foreach($kategori as $fer){ ?>
 									<li><a href="<?= base_url('home/kategori/').$fer->nama_kategori ?>"><?= $fer->nama_kategori ?></a></li>
 									<?php } ?>

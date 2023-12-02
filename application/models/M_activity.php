@@ -312,6 +312,10 @@ class M_activity extends CI_Model{
         $this->db->select('tanggal');
         $this->db->order_by('tanggal', 'ASC');
         $akhir = $this->db->get($this->table1)->last_row('array');
+        if($awal || $akhir == null){
+            $awal['tanggal'] = date('Y');
+            $akhir['tanggal'] = date('Y');
+        }
         $first = intval(substr($awal['tanggal'], 0, 4));
         $last = intval(substr($akhir['tanggal'], 0, 4));
         for($i = $first; $i <= $last; $i++){

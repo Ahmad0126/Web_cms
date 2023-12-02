@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Nov 2023 pada 05.20
+-- Waktu pembuatan: 02 Des 2023 pada 07.30
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `cms`
 --
-CREATE DATABASE IF NOT EXISTS `cms` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `cms`;
 
 -- --------------------------------------------------------
 
@@ -32,8 +30,11 @@ USE `cms`;
 CREATE TABLE `caraousel` (
   `id_caraousel` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL,
-  `foto` varchar(50) NOT NULL
+  `foto` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `caraousel` (`id_caraousel`, `judul`, `foto`) VALUES
+(1, 'Ini namanya Carousel', 'default.jpg');
 
 -- --------------------------------------------------------
 
@@ -44,7 +45,7 @@ CREATE TABLE `caraousel` (
 CREATE TABLE `galeri` (
   `id_galeri` int(11) NOT NULL,
   `judul` varchar(60) NOT NULL,
-  `foto` varchar(30) NOT NULL,
+  `foto` varchar(20) NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -56,7 +57,7 @@ CREATE TABLE `galeri` (
 
 CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
-  `nama_kategori` varchar(200) NOT NULL,
+  `nama_kategori` varchar(20) NOT NULL,
   `sidebar` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -68,15 +69,22 @@ CREATE TABLE `kategori` (
 
 CREATE TABLE `konfigurasi` (
   `id_konfigurasi` int(11) NOT NULL,
-  `judul_website` varchar(200) NOT NULL,
+  `judul_website` varchar(20) NOT NULL,
   `profil_website` text NOT NULL,
-  `instagram` varchar(100) NOT NULL,
-  `facebook` varchar(100) NOT NULL,
+  `instagram` varchar(60) NOT NULL,
+  `facebook` varchar(60) NOT NULL,
   `github` varchar(60) NOT NULL,
-  `email` varchar(100) NOT NULL,
+  `email` varchar(60) NOT NULL,
   `alamat` varchar(150) NOT NULL,
-  `no_wa` varchar(30) NOT NULL
+  `no_wa` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `konfigurasi`
+--
+
+INSERT INTO `konfigurasi` (`id_konfigurasi`, `judul_website`, `profil_website`, `instagram`, `facebook`, `github`, `email`, `alamat`, `no_wa`) VALUES
+(1, 'Web CMS', 'Belum diisi', 'https://instagram.com/', 'https://facebook.com/', 'https://github.com/', 'Belum diisi', 'Belum diisi', 'Belum diisi');
 
 -- --------------------------------------------------------
 
@@ -86,13 +94,13 @@ CREATE TABLE `konfigurasi` (
 
 CREATE TABLE `konten` (
   `id_konten` int(11) NOT NULL,
-  `judul` varchar(200) NOT NULL,
+  `judul` varchar(100) NOT NULL,
   `keterangan` text NOT NULL,
-  `foto` varchar(50) NOT NULL,
-  `slug` varchar(200) NOT NULL,
-  `id_kategori` varchar(20) NOT NULL,
+  `foto` varchar(20) NOT NULL,
+  `slug` varchar(100) NOT NULL,
+  `id_kategori` varchar(3) NOT NULL,
   `tanggal` date NOT NULL,
-  `username` varchar(50) NOT NULL
+  `username` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -130,11 +138,11 @@ CREATE TABLE `saran` (
 
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
-  `username` varchar(70) NOT NULL,
-  `nama` varchar(50) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `nama` varchar(25) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `level` varchar(50) NOT NULL,
-  `profil` varchar(30) NOT NULL
+  `level` varchar(15) NOT NULL,
+  `profil` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -142,7 +150,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `nama`, `password`, `level`, `profil`) VALUES
-(1, 'admin', 'administrator', '1d5a51389eab7a976d3572e9db25fe78', 'admin', 'admin.jpg');
+(1, 'admin', 'administrator', '1d5a51389eab7a976d3572e9db25fe78', 'admin', '');
 
 --
 -- Indexes for dumped tables
@@ -204,19 +212,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `caraousel`
 --
 ALTER TABLE `caraousel`
-  MODIFY `id_caraousel` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_caraousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `konfigurasi`
@@ -228,19 +236,19 @@ ALTER TABLE `konfigurasi`
 -- AUTO_INCREMENT untuk tabel `konten`
 --
 ALTER TABLE `konten`
-  MODIFY `id_konten` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_konten` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `saran`
 --
 ALTER TABLE `saran`
-  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

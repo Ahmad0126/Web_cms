@@ -2,6 +2,7 @@
 	<div class="recent-posts">
 		<h4>Recent Posts</h4>
 		<ul>
+			<?php if($recent_post == null){ echo "<li>Belum ada artikel</li>"; } ?>
 			<?php foreach($recent_post as $fer){ ?>
 			<li><a href="<?= base_url('home/artikel/').$fer->slug ?>"><?= $fer->judul ?></a></li>
 			<?php } ?>

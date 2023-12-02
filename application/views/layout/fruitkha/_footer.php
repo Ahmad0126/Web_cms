@@ -5,6 +5,7 @@
 			<div class="col-lg-3 col-md-6">
 				<div class="footer-box pages">
 					<h2 class="widget-title">Kategori</h2>
+					<?php if($kategori == null){ echo "Belum ada kategori"; } ?>
 					<ul>
 						<?php foreach($kategori as $fer){ ?>
 						<li><a href="<?= base_url('home/kategori/').$fer->nama_kategori ?>"><?= $fer->nama_kategori ?></a></li>
@@ -15,6 +16,7 @@
 			<div class="col-lg-3 col-md-6">
 				<div class="footer-box pages">
 					<h2 class="widget-title">Artikel Terbaru</h2>
+					<?php if($recent_post == null){ echo "Belum ada artikel"; } ?>
 					<ul>
 						<?php foreach($recent_post as $fer){ ?>
 						<li><a href="<?= base_url('home/artikel/').$fer->slug ?>"><?= $fer->judul ?></a></li>
