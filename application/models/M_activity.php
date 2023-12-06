@@ -257,7 +257,8 @@ class M_activity extends CI_Model{
         $this->db->from($this->table1);
         $this->db->join($this->_table, $this->_table.'.id_kategori = '.$this->table1.'.id_kategori');
         $this->db->join($this->table2, $this->table2.'.username = '.$this->table1.'.username');
-        $this->db->like($this->input->get('berdasarkan'), $keyword);
+        $this->db->like('judul', $keyword);
+        $this->db->or_like('keterangan', $keyword);
         $this->db->limit($limit, $start);
         $this->db->order_by('id_konten', 'DESC');
         return $this->db->get()->result();
@@ -338,7 +339,8 @@ class M_activity extends CI_Model{
     public function cek_rows_by_keyword($keyword){
         $this->db->from($this->table1);
         $this->db->join($this->_table, $this->_table.'.id_kategori = '.$this->table1.'.id_kategori');
-        $this->db->like($this->input->get('berdasarkan'), $keyword);
+        $this->db->like('judul', $keyword);
+        $this->db->or_like('keterangan', $keyword);
         return $this->db->get()->num_rows();
     }
     //Create

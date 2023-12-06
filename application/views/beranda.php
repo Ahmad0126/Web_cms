@@ -1,39 +1,30 @@
 <!-- home page slider -->
 <div class="homepage-slider">
     <!-- single home slider -->
-    <div class="single-homepage-slider" style="background-image: url(<?= base_url('assets/upload/carousel/cms-image.jpg') ?>);">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
-                    <div class="hero-text">
-                        <div class="hero-text-tablecell">
-                            <p class="subtitle">Join with us</p>
-                            <h1>Web Blogger iseng isengan</h1>
-                            <div class="hero-btns">
-                                <a href="<?= base_url('home/galeri') ?>" class="boxed-btn">Galeri Foto</a>
-                                <a href="<?= base_url('home/saran') ?>" class="bordered-btn">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php foreach($carousel as $fer){ ?>
+    <?php $no = 1; foreach($carousel as $fer){ ?>
     <div class="single-homepage-slider" style="background-image: url(<?= base_url('assets/upload/carousel/').$fer->foto ?>);">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
                     <div class="hero-text">
                         <div class="hero-text-tablecell">
+                            <?php if($no == 1){ ?>
+                                <p class="subtitle">Join with us</p>
+                                <h1>Web Blogger iseng isengan</h1>
+                                <div class="hero-btns">
+                                    <a href="<?= base_url('home/galeri') ?>" class="boxed-btn">Galeri Foto</a>
+                                    <a href="<?= base_url('home/saran') ?>" class="bordered-btn">Contact Us</a>
+                                </div>
+                            <?php }else{ ?>
                             <h1><?= $fer->judul ?></h1>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <?php } ?>
+    <?php $no++; } ?>
 </div>
 <!-- end home page slider -->
 
